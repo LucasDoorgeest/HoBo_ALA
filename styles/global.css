@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+main > * {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1350px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  height: 100px;
+}
+header figure#logo {
+  height: 100%;
+}
+header figure#logo img {
+  height: 100%;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+header nav #searchWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100vw;
+  padding: 0.5rem;
+  width: 250px;
+  background-color: rgba(91, 155, 213, 0.25);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+header nav #searchWrap * {
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  background: none;
+  outline: none;
+}
+header nav #searchWrap #searchText {
+  width: 75%;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+header nav #searchWrap button {
+  background-color: white;
+  color: #fff;
+  border-radius: 100vw;
+  width: 36px;
+  height: 36px;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+header nav #searchWrap button img {
+  outline: 2px solid white;
+}
+header nav #searchWrap button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+header nav #searchWrap *:focus {
+  outline: none;
+}
+header nav #searchWrap:hover {
+  background-color: rgba(91, 155, 213, 0.5);
+}
+
+.blueBox {
+  background-color: rgba(91, 155, 213, 0.25);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.d-none {
+  display: none;
+}
+
+img {
+  border-radius: 0.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+main {
+  flex: 1;
+  position: relative;
+}
+main #blurBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("../img/series/images/00035.jpg");
+  background-size: cover;
+  filter: blur(75px);
+}
+
+.seriesCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 90%;
+  max-width: 1350px;
+  margin: 0.5rem auto 2rem auto;
+  gap: 1rem;
+  font-weight: 400;
+  font-size: 18px;
+  grid-template-areas: "img cardHeading cardHeading" "img description moreinfo" "img imgs imgs";
+}
+.seriesCard .cardHeading {
+  grid-area: cardHeading;
+  display: flex;
+  justify-content: space-between;
+}
+.seriesCard .titleWrap {
+  display: flex;
+}
+.seriesCard .titleWrap .title {
+  display: flex;
+  flex-direction: column;
+}
+.seriesCard .titleWrap .undertitleinfoWrap {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 0.25rem;
+}
+.seriesCard .titleWrap .likeButton {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+.seriesCard .titleWrap .seriesTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.seriesCard .moreinfoWrap {
+  grid-area: moreinfo;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.seriesCard .seriesImg {
+  grid-area: img;
+  width: 100%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.seriesCard .seriesDescription {
+  grid-area: description;
+  align-self: center;
+}
+.seriesCard .rating {
+  grid-area: rating;
+  align-self: flex-start;
+  justify-self: flex-end;
+}
+.seriesCard .imgs {
+  grid-area: imgs;
+  overflow: hidden;
+  align-self: flex-end;
+  position: relative;
+  background-color: rgba(91, 155, 213, 0.25);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.leftArrow, .rightArrow {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(91, 155, 213, 0.25);
+  border-radius: 100vw;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.leftArrow {
+  left: 16px;
+}
+.rightArrow {
+  right: 16px;
+}
+
+.seriesList.blueBox {
+  position: relative;
+}
+
+.scrolableWrap {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-height: 100%;
+}
+
+.seriesList {
+  margin: 1rem auto;
+}
+.seriesList img {
+  width: 200px;
+  height: 100%;
+}/*# sourceMappingURL=global.css.map */
