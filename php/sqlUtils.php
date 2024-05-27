@@ -12,11 +12,14 @@ function runSql($sql, $params = [], $returnLastInsertedId = false) {
     return $stmt;
 }
 
+function execSql($sql, $params = []) {
+    runSql($sql, $params);
+}
 
 function fetchSql($sql, $params = []) {
-    return runSql($sql, $params)->fetch();
+    return runSql($sql, $params)->fetch(PDO::FETCH_ASSOC);
 }
 
 function fetchSqlAll($sql, $params = []) {
-    return runSql($sql, $params)->fetchAll();
+    return runSql($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
 }
