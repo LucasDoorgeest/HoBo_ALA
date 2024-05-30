@@ -280,3 +280,53 @@ main {
         height: 100%;
     }
 }
+
+
+
+.searchResults {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.searchResults img {
+    width: 200px;
+    height: 300px;
+    object-fit:contain;
+    border-radius: 0.5rem;
+
+    object-fit: cover;
+}
+
+.serieCardWrap {
+    width: calc(200px + 1rem);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
+    transition: all 0.3s ease;
+
+    background-color: rgba($color: $blue, $alpha: .25);
+    padding: 0.5rem;
+
+    p {
+        font-weight: 600;
+        text-shadow: 2px 2px 5px rgba($color: white, $alpha: .25);
+        text-align: center;
+    }
+}
+
+.serieCardWrap:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

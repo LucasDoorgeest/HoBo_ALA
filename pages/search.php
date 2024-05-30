@@ -13,9 +13,34 @@ $head = [
     "styles" => ["/styles/global.css"],
     "scripts" => []
 ];
+$series = [];
+
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
+    $search = $_GET["q"];
+    $series = fetchSqlAll("SELECT * FROM serie WHERE SerieTitel LIKE ?", ["%$search%"]);
+} else {
+    $series = fetchSqlAll("SELECT * FROM serie");
+}
 
 
-$series = fetchSqlAll("SELECT * FROM serie");
+//Check imgs
+for ($i = 0; $i < count($series); $i++) {
+    $serie = $series[$i];
+    $serie["image"] = "/img/series/images/error.png";
+
+
+    $id = $serie["SerieID"];
+    $len = strlen((string)$id); 
+
+    $imgpath = str_repeat("0", 5 - $len) . $id . ".jpg";
+    if (!file_exists("../img/series/images/" . $imgpath)) {
+        $imgpath = "error.png";
+    }
+    $serie["image"] = "/img/series/images/" . $imgpath;
+
+    $series[$i] = $serie;
+}
+
 ?>
 
 
@@ -28,33 +53,39 @@ $series = fetchSqlAll("SELECT * FROM serie");
 <main>
     <div id="blurBg"></div>
     <section class="search">
-        <form action="/pages/search.php" method="get">
-            <input type="text" name="search" id="search" placeholder="Search">
-            <button type="submit">Search</button>
-        </form>
+
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
+        ?>
+
+        <script>
+            document.getElementById("searchText").value = "<?php echo $_GET["q"] ?>";
+        </script>
+
+        <?php
+    }
+    ?>
+
     </section>
     
-
+    <section class="searchResults">
     <?php
 
     foreach ($series as $serie) {
-        $id = $serie["SerieID"];
-        $len = strlen((string)$id);
 
-        $imgpath = str_repeat("0", 5 - $len) . $id;
         ?>
-
-        <section>
-        
-
-            <p>ID: <?php echo $serie["SerieID"] ?></p>
-            <p>Name: <?php echo $serie["SerieTitel"] ?></p>
-            <img src="/img/series/images/<?php echo $imgpath ?>.jpg" alt="">
-        </section>
+        <a href="/pages/serie.php?id=<?php echo $serie["SerieID"] ?>">
+            <section class="serieCardWrap">
+                    <img src="<?php echo $serie["image"] ?>" alt="Serie image">
+                    <p><?php echo $serie["SerieTitel"] ?></p>
+            </section>
+        </a>
 
 
         <?php
     }
 
     ?>
+    </section>
 </main>

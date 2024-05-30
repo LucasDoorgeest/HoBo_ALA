@@ -38,5 +38,22 @@ function headerBlock() {
             </section>
         </nav>
     </header>
+
+    <script>
+        function search() {
+            const search = document.getElementById("searchText").value;
+            window.location.href = `/pages/search.php?q=${search}`;
+        }
+
+        document.getElementById("search").addEventListener("click", search);
+        document.getElementById("searchText").addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                search();
+            }
+        });     
+    </script>
+
+
+
     <?php
 }
