@@ -19,13 +19,14 @@ include "../blocks/footer.php";
         <div id="blurBg"></div>
 
         <h2>Todays topper</h2>
-        <?php seriesCard([
-            "id" => 1,
-            "title" => "The Shawshank Redemption",
-            "description" => "Two imprisoned",
-            "image" => "https://images-na.ssl-images-amazon.com/images/I/51XQbXwF1nL._AC_.jpg"
+        <?php 
+            $randInt = rand(1, 500);
 
-        ]); ?>
+            echo $randInt;
+        
+            seriesCard($randInt); 
+            //seriesCard(84); 
+        ?>
 
         <h2>Laats gekeken</h2>
         <?php scrolableList(

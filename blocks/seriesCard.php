@@ -1,22 +1,94 @@
 <?php
-function seriesCard($series) {
-    // $series = [
-    //     "id" => 1,
-    //     "title" => "The Shawshank Redemption",
-    //     "description" => "After crash-landing on an alien planet, the Robinson family fight against all odds to survive and escape, but they're surrounded by hidden dangers.",
-    //     "image" => "/img/bg/00006.jpg",
-    //     "years" => [
-    //         "begin" => 1994,
-    //         "end" => 1994
-    //     ],
-    //     "duration" => "2h 22min",
-    //     "age" => "16+",
-    //     "seasons" => 1,
-    //     "episodes" => 1,
-    //     "genre" => "Drama",
-    //     "creators" => "Frank Darabont",
-    //     "rating" => 9.3
-    // ]
+include_once '../php/sqlConnect.php';
+include_once '../php/sqlUtils.php';
+
+
+function seriesCard($id) {
+
+
+    $serie = fetchSql("select * from serie where serie.SerieID = ?;", [$id]);
+    $genre = fetchSql("select * from serie_genre
+    join genre on serie_genre.GenreID = genre.GenreID
+    where serie_genre.SerieID = ?;", [$id]);
+    $seasons = fetchSqlAll("select * from seizoen where SerieID = ?", [$id]);
+
+    $rating = 0;
+    $totalDuration = 0;
+    $totalEpisodes = 0;
+
+    foreach ($seasons as $season) {
+        $rating += $season["IMDBRating"];
+        $episodes = fetchSqlAll("select * from aflevering where SeizID = ?", [$season["SeizoenID"]]);
+        $totalEpisodes += count($episodes);      
+        foreach ($episodes as $episode) {
+            $totalDuration += $episode["Duur"];
+        }
+    }
+
+    $rating = $rating / count($seasons);
+    if ($rating == 0) {
+        $rating = "N/A";
+    }
+    if ($totalDuration == 0) {
+        $totalDuration = "N/A";
+    }
+    if ($totalEpisodes == 0) {
+        $totalEpisodes = "N/A";
+    }
+    if (count($seasons) == 0) {
+        $beginYear = "N/A";
+        $endYear = "N/A";
+    } else {
+        $beginYear = $seasons[0]["Jaar"];
+        $endYear = $seasons[count($seasons) - 1]["Jaar"];
+    }
+    if ($beginYear == $endYear) {
+        $endYear = "nu";
+    }
+    if ($genre == null) {
+        $genre = "N/A";
+    } else {
+        $genre = $genre["GenreNaam"];
+    }
+    if (count($seasons) == 0) {
+        $beginYear = "N/A";
+        $endYear = "N/A";
+    } else {
+        $beginYear = $seasons[0]["Jaar"];
+        $endYear = $seasons[count($seasons) - 1]["Jaar"];
+    }
+
+
+    
+
+    $series = [
+        "id" => $serie["SerieID"],
+        "title" => $serie["SerieTitel"],
+        "description" => "No description available.",
+        "years" => [
+            "begin" => $beginYear,
+            "end" => $endYear
+        ],
+        "duration" => $totalDuration . "min",
+        "seasons" => count($seasons),
+        "episodes" => $totalEpisodes,
+        "genre" => $genre,
+        "rating" => $rating
+    ];
+
+
+    $len = strlen((string)$series["id"]);
+    $imgpath = str_repeat("0", 5 - $len) . $series["id"] . ".jpg";
+    if (!file_exists("../img/series/images/" . $imgpath)) {
+        $imgpath = "error.png";
+    }
+
+
+    $series["image"] = "/img/series/images/" . $imgpath;
+
+
+
+
     ?>
     <article class="seriesCard">
         <section class="cardHeading">
@@ -53,10 +125,6 @@ function seriesCard($series) {
                 <td>Genre:</td>
                 <td><?php echo $series["genre"]; ?></td>
             </tr>
-            <tr>
-                <td>Creators:</td>
-                <td><?php echo $series["creators"]; ?></td>
-            </tr>
         </table>
             
 
@@ -68,7 +136,7 @@ function seriesCard($series) {
         <p class="seriesDescription"><?php echo $series["description"]; ?></p>
 
 
-        <section class="imgs">
+        <!-- <section class="imgs">
             <div class="scrolableWrap">
                 <img class="scrolableImg" src="/img/Rectangle 19.png" alt="The Shawshank Redemption">
                 <img class="scrolableImg" src="/img/Rectangle 20.png" alt="The Shawshank Redemption">
@@ -84,7 +152,7 @@ function seriesCard($series) {
             <button class="rightArrow">
                 <p>></p>
             </button>
-        </section>
+        </section> -->
 
 
         

@@ -1,5 +1,9 @@
 <?php
 function headerBlock() {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    print_r($_SESSION["user"]);
     ?>
     <header>
             <figure id="logo">
