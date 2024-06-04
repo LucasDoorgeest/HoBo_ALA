@@ -3,10 +3,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (isset($_SESSION["user"])) {
-    $userId = $_SESSION["user"]["KlantNr"];
+    $klantID = $_SESSION["user"]["KlantNr"];
     $aflID = $_GET["id"];
 
-    echo "<script>const userId = $userId; const serieId = $serieId;</script>";
+    echo "<script>const klantID = $klantID; const aflID = $aflID;</script>";
 
 }
 
@@ -18,16 +18,16 @@ if (!isset($_GET["id"])) {
 require_once "../blocks/head.php";
 require_once "../blocks/header.php";
 require_once "../blocks/footer.php";
-require_once "../blocks/seriesCard.php";
+require_once "../blocks/afleveringCard.php";
 
 
 require_once "../php/sqlConnect.php";
 require_once "../php/sqlUtils.php";
 
 $head = [
-    "title" => "serie",
+    "title" => "Aflevering",
     "styles" => ["/styles/global.css"],
-    "scripts" => ["/script/slides.js", "/script/serie.js"]
+    "scripts" => ["/script/slides.js", "/script/aflevering.js"]
 ];
 
 ?>
@@ -38,7 +38,7 @@ $head = [
 <?php headerBlock(); ?>
 <main>
     <div id="blurBg"></div>
-    <?php echo seriesCard($_GET['id']); ?>
+    <?php echo afleveringCard($_GET['id']); ?>
 </main>
 <?php footer(); ?>
 </body>

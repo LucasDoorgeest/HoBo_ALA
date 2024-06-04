@@ -197,6 +197,25 @@ main {
             width: 40px;
             height: 40px;
             margin: 5px;
+            background-color: transparent;
+            border: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+
+            &:hover img {
+                transform: scale(1.1);
+            }
         }
 
         .seriesTitle {
@@ -332,6 +351,42 @@ main {
 a {
     text-decoration: none;
     color: black;
+}
+
+
+.scrollableCard {
+    position: relative;
+
+    p {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        font-weight: 700;
+        font-size: 1.25rem;
+        text-shadow: 0 0 5px rgba($color: white, $alpha: .55);
+    }
+}
+
+
+#profile {
+    transition: all 0.3s ease;
+    
+
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+.Error {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    left: 0;
+    margin-top: 15%;
+
 }
 
 /* Responsive */

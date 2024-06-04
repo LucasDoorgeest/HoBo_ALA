@@ -154,6 +154,21 @@ main #blurBg {
   width: 40px;
   height: 40px;
   margin: 5px;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+}
+.seriesCard .titleWrap .likeButton:hover {
+  cursor: pointer;
+}
+.seriesCard .titleWrap .likeButton:focus {
+  outline: none;
+}
+.seriesCard .titleWrap .likeButton:active {
+  transform: scale(0.9);
+}
+.seriesCard .titleWrap .likeButton:hover img {
+  transform: scale(1.1);
 }
 .seriesCard .titleWrap .seriesTitle {
   font-size: 1.75rem;
@@ -274,4 +289,35 @@ main #blurBg {
 a {
   text-decoration: none;
   color: black;
-}/*# sourceMappingURL=global.css.map */
+}
+
+.scrollableCard {
+  position: relative;
+}
+.scrollableCard p {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.55);
+}
+
+#profile {
+  transition: all 0.3s ease;
+}
+#profile:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.Error {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  left: 0;
+  margin-top: 15%;
+}
+
+/* Responsive *//*# sourceMappingURL=global.css.map */

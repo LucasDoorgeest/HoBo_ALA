@@ -25,8 +25,9 @@ function seriesCard($id) {
         }
     }
 
-    $rating = $rating / count($seasons);
-    if ($rating == 0) {
+    if (count($seasons) > 0) {
+        $rating = $rating / count($seasons);
+    } else {
         $rating = "N/A";
     }
     if ($totalDuration == 0) {
@@ -102,7 +103,7 @@ function seriesCard($id) {
                     </section>
                 </section>
                 <button class="likeButton">    
-                    <img class="likeIcon" src="/images/like.svg" alt="Like icon" >
+                    <img class="likeIcon" src="/img/red-heart-icon.svg" alt="Like icon" >
                 </button>
             </section>
 

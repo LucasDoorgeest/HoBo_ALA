@@ -5,12 +5,12 @@ function sendWatching() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userId: userId, serieId: serieId }),
+        body: JSON.stringify({ klantID: klantID, aflID: aflID }),
     })
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof userId !== 'undefined') {
+    if (typeof klantID !== 'undefined') {
         setInterval(
             sendWatching, 5000
         )
