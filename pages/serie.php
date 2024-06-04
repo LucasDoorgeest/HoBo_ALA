@@ -19,6 +19,7 @@ require_once "../blocks/head.php";
 require_once "../blocks/header.php";
 require_once "../blocks/footer.php";
 require_once "../blocks/seriesCard.php";
+require_once "../blocks/scrolableList.php";
 
 
 require_once "../php/sqlConnect.php";
@@ -39,6 +40,35 @@ $head = [
 <main>
     <div id="blurBg"></div>
     <?php echo seriesCard($_GET['id']); ?>
+
+    <h2>Seizoenen</h2>
+
+    <?php
+
+    $seasons = fetchSqlAll("select * from seizoen where SerieID = ?", [$_GET['id']]);
+
+    foreach ($seasons as $key => $season) {
+        $items = [];
+
+        $episodes = fetchSqlAll("select * from aflevering where SeizID = ?", [$season["SeizoenID"]]);
+
+        foreach ($episodes as $episode) {
+            $items[] = [
+                "id" => $episode["AfleveringID"],
+                "title" => $episode["AflTitel"],
+                "img" => "/images/series/" . "000005.jpg", //TODO: change to actual image
+                "link" => "/pages/aflevering.php?id=" . $episode["AfleveringID"]
+            ];
+        }
+
+        echo "<h3>Seizoen " . $key + 1 . "</h3>";
+        scrolableList($items);
+        
+    }
+
+    ?>
+
+
 </main>
 <?php footer(); ?>
 </body>
