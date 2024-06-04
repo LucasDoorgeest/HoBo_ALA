@@ -50,11 +50,35 @@ $head = [
 <?php head($head); ?>
 <?php headerBlock(); ?>
 <main>
+    <article>
+        <i class="fa-brands fa-apple"></i>Sign up with Apple
+    </article>
+    <article>
+        <i class="fa-brands fa-google"></i>Sign up with Google
+    </article>
     <form action="" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="passwordRepeat" placeholder="Repeat password">
-        <input type="submit" value="Register">
+        <article>
+            <p>Email</p>
+            <input type="email" name="email" placeholder="example@example.com">
+        </article>
+        <article>
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Your password">
+        </article>
+        <article>
+            <p>Repeat password</p>
+            <input type="password" name="passwordRepeat" placeholder="Repeat password">
+        </article>
+        <input name="cb" type="checkbox">
+        <label>I have read and accept</label>
+        <a href="#">terms &amp; conditions</a>
+        <article>
+            <input type="submit" value="Register">
+        </article>
+        <article>
+           <span class="ghost"> Already have an account? </span>
+           <a href="/pages/login.php">Sign in</a>
+        </article>
     </form>
 </main>
 <?php footer(); ?>

@@ -168,6 +168,7 @@ main #blurBg {
 .seriesCard .seriesImg {
   grid-area: img;
   width: 100%;
+  min-height: 250px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 .seriesCard .seriesDescription {
@@ -274,4 +275,28 @@ main #blurBg {
 a {
   text-decoration: none;
   color: black;
-}/*# sourceMappingURL=global.css.map */
+}
+
+/* Register / Login */
+.ghost {
+  color: #555;
+}
+
+/* Footer */
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(calc(30vw - 64px), 1fr));
+  width: 100vw;
+  gap: 5rem;
+  padding: 32px 32px;
+  background-color: rgba(91, 155, 213, 0.25);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+footer a, footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive *//*# sourceMappingURL=global.css.map */
