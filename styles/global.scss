@@ -9,6 +9,9 @@
 $blue: #5B9BD5;
 
 $maxWidth: 1350px;
+$layout-breakpoint-small: 1024px;
+$layout-breakpoint-medium: 768px;
+$layout-breakpoint-large: 480px;
 
 main > * {
     width: 90%;
@@ -329,4 +332,18 @@ main {
 a {
     text-decoration: none;
     color: black;
+}
+
+/* Responsive */
+
+@media screen and (max-width: $layout-breakpoint-small) {
+
+}
+
+@media screen and (max-width: $layout-breakpoint-medium) {
+
+}
+
+@media screen and (max-width: $layout-breakpoint-large) {
+
 }
