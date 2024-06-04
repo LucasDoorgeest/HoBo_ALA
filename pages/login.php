@@ -8,12 +8,13 @@ include_once '../php/sqlUtils.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user = fetchSql('SELECT * FROM users WHERE username = ?', [$username]);
+    $user = fetchSql('SELECT * FROM klant WHERE email = ?', [$email]);
 
     if ($user && password_verify($password, $user['password'])) {
+        session_start();
         $_SESSION['user'] = $user;
         header('Location: /');
         exit;
@@ -38,7 +39,7 @@ $head = [
 <?php headerBlock(); ?>
 <main>
     <form action="" method="post">
-        <input type="text" name="username" placeholder="Username">
+        <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Login">
     </form>

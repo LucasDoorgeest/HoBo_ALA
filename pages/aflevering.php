@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if (isset($_SESSION["user"])) {
     $userId = $_SESSION["user"]["KlantNr"];
-    $serieId = $_GET["id"];
+    $aflID = $_GET["id"];
 
     echo "<script>const userId = $userId; const serieId = $serieId;</script>";
 
