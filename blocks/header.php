@@ -24,20 +24,14 @@ function headerBlock() {
                     </figcaption>
                 </button>
             </section>
-            <section id="settings">
-                <figure>
-                    <img src="/img/settings_icon.svg" alt="Settings">
-                    <figcaption class="d-none">
-                        Settings icon
-                    </figcaption>
-                </figure>
-            </section>
             <section>
                 <figure id="profile">
-                    <img src="/img/profile_icon.svg" alt="Profile">
-                    <figcaption class="d-none">
-                        Profile icon
-                    </figcaption>
+                    <a href="/pages/profile.php">
+                        <img src="/img/profile_icon.svg" alt="Profile">
+                        <figcaption class="d-none">
+                            Profile icon
+                        </figcaption>
+                    </a>
                 </figure>
             </section>
         </nav>

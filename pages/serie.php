@@ -47,6 +47,15 @@ $head = [
 
     $seasons = fetchSqlAll("select * from seizoen where SerieID = ?", [$_GET['id']]);
 
+    $len = strlen((string)$_GET['id']);
+    $imgpath = str_repeat("0", 5 - $len) . $_GET['id'] . ".jpg";
+    if (!file_exists("../img/series/images/" . $imgpath)) {
+        $imgpath = "error.png";
+    }
+
+
+    $img = "/img/series/images/" . $imgpath;
+
     foreach ($seasons as $key => $season) {
         $items = [];
 
@@ -56,7 +65,7 @@ $head = [
             $items[] = [
                 "id" => $episode["AfleveringID"],
                 "title" => $episode["AflTitel"],
-                "img" => "/images/series/" . "000005.jpg", //TODO: change to actual image
+                "img" => $img,
                 "link" => "/pages/aflevering.php?id=" . $episode["AfleveringID"]
             ];
         }

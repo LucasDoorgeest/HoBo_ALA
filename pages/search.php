@@ -86,6 +86,13 @@ for ($i = 0; $i < count($series); $i++) {
         <?php
     }
 
+
+    if (count($series) == 0) {
+        ?>
+        <h1 class="Error">Oops, niks gevonden</h1>
+        <?php
+    }
+
     ?>
     </section>
 </main>
