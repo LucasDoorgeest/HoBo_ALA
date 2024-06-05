@@ -12,6 +12,7 @@ $maxWidth: 1350px;
 $layout-breakpoint-small: 1024px;
 $layout-breakpoint-medium: 768px;
 $layout-breakpoint-large: 480px;
+$ghost: #999999;
 
 main > * {
     width: 90%;
@@ -127,6 +128,7 @@ header {
 img {
     border-radius: 0.5rem;
     object-fit: contain;
+    max-width: 30vw;
 }
 
 body {
@@ -237,6 +239,7 @@ main {
     .seriesImg {
         grid-area: img;
         width: 100%;
+        min-height: 250px;
         box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     }
 
@@ -306,8 +309,6 @@ main {
     }
 }
 
-
-
 .searchResults {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -356,6 +357,122 @@ a {
     color: black;
 }
 
+/* Register / Login */
+
+.register{
+    display: flex;
+    width: 90vw;
+    justify-content: center;
+    margin: auto;
+    gap: 50px;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+
+    .brand{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 1rem;
+        background-color: white;
+        border: 1px solid $ghost;
+        border-radius: 3px;
+        padding: 5px;
+        width: 50%;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        input {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid $ghost;
+            transition: all 0.3s ease;
+
+            .submitbutton{
+                background: #3e43fb;
+            }
+
+            &:focus {
+                outline: none;
+                border: 1px solid $blue;
+            }
+        }
+
+        button {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid $ghost;
+            background-color: $blue;
+            color: white;
+            transition: all 0.3s ease;
+            border: none;
+            border-bottom: 2px solid #555;
+            outline: none;
+
+            &:hover {
+                cursor: pointer;
+                background-color: white;
+                color: $blue;
+            }
+        }
+        .passwordform{
+            display: flex;
+            gap: 1rem;
+        }
+        .emailform{
+            width: 100%;
+        }
+    }
+}
+
+.infologin{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-image: url("/img/bg/achtergrondlogin.jpg");
+    background-size: cover;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 2rem;
+    border: 1px solid $ghost;
+    background-position: 75% 25%;
+
+    .ghost{
+        color: $ghost;
+        position: absolute;
+        top: 90%;
+        bottom: 100%;
+    }
+}
+
+/* Footer */
+
+footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(calc(30vw - 64px), 1fr));
+    width: 100vw;
+    gap: 5rem;
+    padding: 16px 32px;
+    background-color: rgba($color: $blue, $alpha: .25);
+    box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
+    a,p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 
 .scrollableCard {
     position: relative;
@@ -374,8 +491,6 @@ a {
 #profile {
     transition: all 0.3s ease;
     
-
-
     &:hover {
         cursor: pointer;
         transform: scale(1.05);

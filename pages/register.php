@@ -41,13 +41,57 @@ $head = new HeadComponent("Register",
 <html lang="nl"></html>
 <?php $head->render(); ?>
 <?php headerBlock(); ?>
-<main>
-    <form action="" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="passwordRepeat" placeholder="Repeat password">
-        <input type="submit" value="Register">
-    </form>
+<main class="register">
+    <section class="registerForm">
+        <article>
+            <h1>Sign up</h1>
+            <p>Register to log in to your admin panel</p>
+        </article>
+        <button class="brand">
+            <i class="fa-brands fa-apple"></i>
+            <p>Sign up with Apple</p>
+        </button>
+        <button class="brand">
+            <i class="fa-brands fa-google"></i>
+            <p>Sign up with Google</p>
+        </button>
+        <form action="" method="post">
+            <article>
+                <p>Email</p>
+                <input class="ghost border-info emailform" type="email" name="email" placeholder="example@example.com">
+            </article>
+            <article class="passwordform">
+                <article>
+                    <p>Password</p>
+                    <input class="ghost border-info" type="password" name="password" placeholder="Your password">
+                </article>
+                <article>
+                    <p>Repeat</p>
+                    <input class="ghost border-info" type="password" name="passwordRepeat" placeholder="Repeat password">
+                </article>
+            </article>
+            <article>
+                <input name="cb" type="checkbox">
+                <label>I have read and accept</label>
+                <a href="#">terms &amp; conditions</a>
+            </article>
+            <article>
+                <input class="submitbutton" type="submit" value="Register">
+            </article>
+            <article>
+                <span class="ghost"> Already have an account? </span>
+                <a href="/pages/login.php">Sign in</a>
+            </article>
+        </form>
+    </section>
+    <article class="infologin">
+        <h1>Hobo</h1>
+        <article>
+            <h1>Start your journey through our expansive library</h1>
+            <p>You are one step away from discovering greatness</p>
+        </article>
+        <p class="ghost">Art by Tirachard Kumtanom</p>
+    </article>
 </main>
 <?php footer(); ?>
 </body>
