@@ -1,36 +1,26 @@
 <?php
 function headerBlock() {
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-    print_r($_SESSION["user"]);
     ?>
     <header>
-            <figure id="logo">
+        <figure id="logo">
             <a href="/pages/home.php">
                 <img src="/img/logo_full.png" alt="Logo">
-                <figcaption class="d-none">
-                    HoBo logo
-                </figcaption>
+                <figcaption class="d-none">HoBo logo</figcaption>
             </a>
-            </figure>
+        </figure>
         <nav>
             <section id="searchWrap">
                 <input type="text" id="searchText" placeholder="Search...">
                 <button id="search">
                     <img src="/img/search_icon.svg" alt="Search">
-                    <figcaption class="d-none">
-                        Search icon
-                    </figcaption>
+                    <figcaption class="d-none">Search icon</figcaption>
                 </button>
             </section>
             <section>
                 <figure id="profile">
                     <a href="/pages/profile.php">
                         <img src="/img/profile_icon.svg" alt="Profile">
-                        <figcaption class="d-none">
-                            Profile icon
-                        </figcaption>
+                        <figcaption class="d-none">Profile icon</figcaption>
                     </a>
                 </figure>
             </section>
@@ -40,7 +30,11 @@ function headerBlock() {
     <script>
         function search() {
             const search = document.getElementById("searchText").value;
-            window.location.href = `/pages/search.php?q=${search}`;
+            //Check get parameters
+            if (window.location.href.includes("?")) {
+                window.location.href = `/pages/search.php?q=${search}&${window.location.href.split("?")[1].split("&").filter((param) => !param.includes("q")).join("&")}`;
+                return;
+            }
         }
 
         document.getElementById("search").addEventListener("click", search);

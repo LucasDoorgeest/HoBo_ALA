@@ -1,23 +1,18 @@
 <?php
-include "../blocks/head.php";
-include "../blocks/header.php";
-include "../blocks/seriesCard.php";
-include "../blocks/scrolableList.php";
-include "../blocks/footer.php";
-include "../php/getHistory.php";
+include_once '../php/basicIncludes.php';
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+$head = new HeadComponent("Home", 
+                        ["/styles/global.css"], 
+                        ["/script/slides.js", "/script/custombg.js"]);
+
+
 
 ?>
 <!DOCTYPE html>
 <html lang="nl">
-<?php head([
-    "title" => "Home",
-    "styles" => ["/styles/global.css"],
-    "scripts" => ["/script/slides.js"]
-]); ?>
+<?php $head->render() ?>
+
+
 <body>
     <?php headerBlock(); ?>
     <main>
@@ -26,9 +21,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <h2>Todays topper</h2>
         <?php 
             $randInt = rand(1, 500);
-        
-            seriesCard($randInt); 
-            //seriesCard(84); 
+            serieCard($randInt); 
         ?>
 
         <h2>Laats gekeken</h2>
@@ -54,7 +47,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 ];
             }
 
-            scrolableList($cards);
+            scrollableList($cards);
         ?>
 
 
@@ -73,6 +66,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
         $cards = [];
 
+
+
         foreach ($items as $key => $item) {
 
             $len = strlen((string)$item["SerieID"]);
@@ -81,10 +76,16 @@ if (session_status() == PHP_SESSION_NONE) {
                 $imgpath = "error.png";
             }
 
+            $cards[] = [
+                "title" => $item["SerieTitel"],
+                "img" => "/img/series/images/" . $imgpath,
+                "link" => "/pages/serie.php?id=" . $item["SerieID"]
+            ];
+
 
         }
 
-        scrolableList($cards);
+        scrollableList($cards);
         ?>  
         
     </main>

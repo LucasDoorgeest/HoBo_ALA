@@ -1,33 +1,21 @@
 <?php
-require_once "../blocks/head.php";
-require_once "../blocks/header.php";
-require_once "../blocks/footer.php";
+include_once "../php/basicIncludes.php";
+include_once "../php/klantOnly.php";
 
-require_once "../php/getHistory.php";
-require_once "../blocks/scrolableList.php";
+$head = new HeadComponent("History", 
+                        ["/styles/global.css"], 
+                        ["/script/slides.js", "/script/aflevering.js"]);
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-$head = [
-    "title" => "History",
-    "styles" => ["/styles/global.css"],
-    "scripts" => []
-];
-$series = [];
-
-if (!isset($_SESSION["user"])) {
-    header("Location: /pages/login.php");
-    exit();
-}
+// TODO: Create a grid of cards with the series that the user has watched
+// TODO: Create a card block
+// TODO: create a function to convert id to img path
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="nl">
-<?php head($head); ?>
+<?php $head->render(); ?>
 
 <?php headerBlock(); ?>
 
@@ -54,10 +42,8 @@ if (!isset($_SESSION["user"])) {
             ];
         }
 
-        scrolableList($cards);
+        scrollableList($cards);
     
     
     ?>
-
-
 </main>

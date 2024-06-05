@@ -1,10 +1,6 @@
 <?php
-include_once '../blocks/head.php';
-include_once '../blocks/header.php';
-include_once '../blocks/footer.php';
-
-include_once '../php/sqlConnect.php';
-include_once '../php/sqlUtils.php';
+include_once "../php/basicIncludes.php";
+include_once "../php/klantOnly.php";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,18 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-
-
-$head = [
-    'title' => 'Register',
-    'styles' => ['/styles/global.css'],
-    'scripts' => [],
-];
+$head = new HeadComponent("Register", 
+                        ["/styles/global.css"], 
+                        []);
 ?>
 
 <!DOCTYPE html>
 <html lang="nl"></html>
-<?php head($head); ?>
+<?php $head->render(); ?>
 <?php headerBlock(); ?>
 <main>
     <form action="" method="post">

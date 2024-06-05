@@ -1,45 +1,29 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if (isset($_SESSION["user"])) {
-    $userId = $_SESSION["user"]["KlantNr"];
-    $serieId = $_GET["id"];
-
-    echo "<script>const userId = $userId; const serieId = $serieId;</script>";
-
-}
+include_once "../php/basicIncludes.php";
+include_once "../php/klantOnly.php";
 
 if (!isset($_GET["id"])) {
     header("Location: /pages/home.php");
     exit();
 }
 
-require_once "../blocks/head.php";
-require_once "../blocks/header.php";
-require_once "../blocks/footer.php";
-require_once "../blocks/seriesCard.php";
-require_once "../blocks/scrolableList.php";
+$userId = $_SESSION["user"]["KlantNr"];
+$serieId = $_GET["id"];
+echo "<script>const userId = $userId; const serieId = $serieId;</script>";
 
-
-require_once "../php/sqlConnect.php";
-require_once "../php/sqlUtils.php";
-
-$head = [
-    "title" => "serie",
-    "styles" => ["/styles/global.css"],
-    "scripts" => ["/script/slides.js", "/script/serie.js"]
-];
+$head = new HeadComponent("Aflevering", 
+                        ["/styles/global.css"], 
+                        ["/script/slides.js", "/script/aflevering.js"]);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="nl">
-<?php head($head); ?>
+<?php $head->render(); ?>
 <?php headerBlock(); ?>
 <main>
     <div id="blurBg"></div>
-    <?php echo seriesCard($_GET['id']); ?>
+    <?php echo serieCard($_GET['id']); ?>
 
     <h2>Seizoenen</h2>
 
@@ -71,7 +55,7 @@ $head = [
         }
 
         echo "<h3>Seizoen " . $key + 1 . "</h3>";
-        scrolableList($items);
+        scrollableList($items);
         
     }
 

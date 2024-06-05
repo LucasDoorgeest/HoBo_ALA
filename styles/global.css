@@ -114,15 +114,18 @@ main #blurBg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  max-width: unset !important;
   height: 100%;
   z-index: -1;
   background-image: url("../img/bg/00006.jpg");
+  background-repeat: repeat-y;
+  opacity: 0.25;
   background-size: cover;
   filter: blur(75px);
 }
 
-.seriesCard {
+.serieCard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
@@ -133,24 +136,24 @@ main #blurBg {
   font-size: 18px;
   grid-template-areas: "img cardHeading cardHeading" "img description moreinfo" "img imgs imgs";
 }
-.seriesCard .cardHeading {
+.serieCard .cardHeading {
   grid-area: cardHeading;
   display: flex;
   justify-content: space-between;
 }
-.seriesCard .titleWrap {
+.serieCard .titleWrap {
   display: flex;
 }
-.seriesCard .titleWrap .title {
+.serieCard .titleWrap .title {
   display: flex;
   flex-direction: column;
 }
-.seriesCard .titleWrap .undertitleinfoWrap {
+.serieCard .titleWrap .undertitleinfoWrap {
   display: flex;
   gap: 0.5rem;
   padding: 0 0.25rem;
 }
-.seriesCard .titleWrap .likeButton {
+.serieCard .titleWrap .likeButton {
   width: 40px;
   height: 40px;
   margin: 5px;
@@ -158,43 +161,43 @@ main #blurBg {
   border: none;
   transition: all 0.3s ease;
 }
-.seriesCard .titleWrap .likeButton:hover {
+.serieCard .titleWrap .likeButton:hover {
   cursor: pointer;
 }
-.seriesCard .titleWrap .likeButton:focus {
+.serieCard .titleWrap .likeButton:focus {
   outline: none;
 }
-.seriesCard .titleWrap .likeButton:active {
+.serieCard .titleWrap .likeButton:active {
   transform: scale(0.9);
 }
-.seriesCard .titleWrap .likeButton:hover img {
+.serieCard .titleWrap .likeButton:hover img {
   transform: scale(1.1);
 }
-.seriesCard .titleWrap .seriesTitle {
+.serieCard .titleWrap .seriesTitle {
   font-size: 1.75rem;
   font-weight: 600;
 }
-.seriesCard .moreinfoWrap {
+.serieCard .moreinfoWrap {
   grid-area: moreinfo;
   display: flex;
   flex-direction: column;
   align-self: center;
 }
-.seriesCard .seriesImg {
+.serieCard .seriesImg {
   grid-area: img;
   width: 100%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
-.seriesCard .seriesDescription {
+.serieCard .seriesDescription {
   grid-area: description;
   align-self: center;
 }
-.seriesCard .rating {
+.serieCard .rating {
   grid-area: rating;
   align-self: flex-start;
   justify-self: flex-end;
 }
-.seriesCard .imgs {
+.serieCard .imgs {
   grid-area: imgs;
   overflow: hidden;
   align-self: flex-end;
@@ -204,7 +207,7 @@ main #blurBg {
   padding: 0.5rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
-.seriesCard .imgs .leftArrow, .seriesCard .imgs .rightArrow {
+.serieCard .imgs .leftArrow, .serieCard .imgs .rightArrow {
   width: 50px;
   height: 50px;
   background-color: rgba(91, 155, 213, 0.25);
@@ -221,10 +224,10 @@ main #blurBg {
   transform: translateY(-50%);
   z-index: 1;
 }
-.seriesCard .imgs .leftArrow {
+.serieCard .imgs .leftArrow {
   left: 16px;
 }
-.seriesCard .imgs .rightArrow {
+.serieCard .imgs .rightArrow {
   right: 16px;
 }
 

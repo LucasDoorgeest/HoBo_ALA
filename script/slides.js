@@ -2,18 +2,18 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.querySelectorAll('.scrolableWrap').forEach(function (scrolableWrap) {
-        const leftBtn = scrolableWrap.parentElement.querySelector('.leftArrow');
-        const rightBtn = scrolableWrap.parentElement.querySelector('.rightArrow');
+    document.querySelectorAll('.scrollableWrap').forEach(function (scrollableWrap) {
+        const leftBtn = scrollableWrap.parentElement.querySelector('.leftArrow');
+        const rightBtn = scrollableWrap.parentElement.querySelector('.rightArrow');
 
-        const img = scrolableWrap.querySelector('.scrolableImg');
+        const img = scrollableWrap.querySelector('.scrollableImg');
 
         leftBtn.addEventListener('click', function () {
-            scrolableWrap.scrollLeft = parseInt(scrolableWrap.scrollLeft) - 450;
+            scrollableWrap.scrollLeft = parseInt(scrollableWrap.scrollLeft) - 450;
         });
 
         rightBtn.addEventListener('click', function () {
-            scrolableWrap.scrollLeft = parseInt(scrolableWrap.scrollLeft) + 450;
+            scrollableWrap.scrollLeft = parseInt(scrollableWrap.scrollLeft) + 450;
         });
 
     });

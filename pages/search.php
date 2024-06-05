@@ -1,60 +1,63 @@
 <?php
-require_once "../blocks/head.php";
-require_once "../blocks/header.php";
-require_once "../blocks/footer.php";
+include_once "../php/basicIncludes.php";
+include_once "../php/klantOnly.php";
 
+$head = new HeadComponent("Search", ["/styles/global.css"], []);
 
-require_once "../php/sqlConnect.php";
-require_once "../php/sqlUtils.php";
-
-
-$head = [
-    "title" => "Search",
-    "styles" => ["/styles/global.css"],
-    "scripts" => []
-];
 $series = [];
 
-if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
-    $search = $_GET["q"];
-    $series = fetchSqlAll("SELECT * FROM serie WHERE SerieTitel LIKE ?", ["%$search%"]);
-} else {
-    $series = fetchSqlAll("SELECT * FROM serie");
-}
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    $search = isset($_GET["q"]) ? $_GET["q"] : null;
+    $genre = isset($_GET["genre"]) ? $_GET["genre"] : null;
 
 
-//Check imgs
-for ($i = 0; $i < count($series); $i++) {
-    $serie = $series[$i];
-    $serie["image"] = "/img/series/images/error.png";
+    $query = "SELECT * FROM serie";
+    $params = [];
 
-
-    $id = $serie["SerieID"];
-    $len = strlen((string)$id); 
-
-    $imgpath = str_repeat("0", 5 - $len) . $id . ".jpg";
-    if (!file_exists("../img/series/images/" . $imgpath)) {
-        $imgpath = "error.png";
+    if ($genre) {
+        $query .= " inner join serie_genre on serie.SerieID = serie_genre.SerieID
+        WHERE GenreID = ?";
+    ";";
+        $params[] = $genre;
     }
-    $serie["image"] = "/img/series/images/" . $imgpath;
 
-    $series[$i] = $serie;
+    if ($search) {
+        if ($genre) {
+            $query .= " AND";
+        } else {
+            $query .= " WHERE";
+        }
+
+        $query .= " SerieTitel LIKE ?";
+        $params[] = "%" . $search . "%";
+    }
+
+
+    $series = fetchSqlAll($query, $params);
+
+    print($query);
+    print_r($params);
+
 }
+
+foreach ($series as $key => $serie) {
+    $series[$key]["image"] = getImgPathBySerieId($serie["SerieID"]);
+}
+
+
+$genres = fetchSqlAll("SELECT * FROM genre");
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="nl">
-<?php head($head); ?>
+<?php $head->render(); ?>
 
 <?php headerBlock(); ?>
 
 <main>
     <div id="blurBg"></div>
-    <section class="search">
-
-
     <?php
     if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
         ?>
@@ -67,7 +70,21 @@ for ($i = 0; $i < count($series); $i++) {
     }
     ?>
 
+    <section id="searchHeading">
+        <a href="/pages/search.php?q=<?php echo $_GET['q'] ?>">
+            <button class="<?php if (!isset($_GET["genre"])) { echo "active"; } ?>">All</button>
+        </a>
+        <?php
+            foreach ($genres as $genre) {
+                ?>
+                <a href="<?php echo "/pages/search.php?q=" . $_GET["q"] . "&genre=" . $genre["GenreID"] ?>">
+                    <button class="<?php if (isset($_GET["genre"]) && $_GET["genre"] == $genre["GenreID"]) { echo "active"; } ?>"><?php echo $genre["GenreNaam"] ?></button>
+                </a>
+                <?php
+            }
+        ?>
     </section>
+
     
     <section class="searchResults">
     <?php

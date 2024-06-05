@@ -148,17 +148,20 @@ main {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
+        max-width: unset !important;
         height: 100%;
         z-index: -1;
         background-image: url("../img/bg/00006.jpg");
+        background-repeat: repeat-y;
+        opacity: 0.25;
         background-size: cover;
         filter: blur(75px);
     }
 
 }
 
-.seriesCard {
+.serieCard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 90%;

@@ -1,26 +1,9 @@
 <?php
+include_once "../php/basicIncludes.php";
+include_once "../php/klantOnly.php";
 
-require_once "../blocks/head.php";
-require_once "../blocks/header.php";
-require_once "../blocks/footer.php";
+$head = new HeadComponent("Profiel", ["/styles/global.css"], []);
 
-require_once "../php/sqlConnect.php";
-require_once "../php/sqlUtils.php";
-
-$head = [
-    "title" => "Profiel",
-    "styles" => ["/styles/global.css"],
-    "scripts" => []
-];
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION["user"])) {
-    header("Location: /pages/login.php");
-    exit();
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["Voornaam"];
@@ -48,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="nl">
-<?php head($head); ?>
+<?php $head->render(); ?>
 <body>
     <?php headerBlock(); ?>
     <main>

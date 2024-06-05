@@ -1,8 +1,5 @@
 <?php
 
-include_once '../php/sqlConnect.php';
-include_once '../php/sqlUtils.php';
-
 function getHistory($klantID) {
     $query = "
     SELECT * from stream
