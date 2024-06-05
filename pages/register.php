@@ -45,7 +45,7 @@ $head = new HeadComponent("Register",
     <section class="registerForm">
         <article>
             <h1>Sign up</h1>
-            <p>Register to log in to your admin panel</p>
+            <p>Register to log in to your account</p>
         </article>
         <button class="brand">
             <i class="fa-brands fa-apple"></i>
@@ -71,16 +71,14 @@ $head = new HeadComponent("Register",
                 </article>
             </article>
             <article>
-                <input name="cb" type="checkbox">
+                <input class="checkbox-terms" name="cb" type="checkbox">
                 <label>I have read and accept</label>
-                <a href="#">terms &amp; conditions</a>
+                <a class="hover" href="#">terms &amp; conditions</a>
             </article>
-            <article>
-                <input class="submitbutton" type="submit" value="Register">
-            </article>
+            <input class="submitbutton" type="submit" value="Register">
             <article>
                 <span class="ghost"> Already have an account? </span>
-                <a href="/pages/login.php">Sign in</a>
+                <a class="hover" href="/pages/login.php">Log in</a>
             </article>
         </form>
     </section>

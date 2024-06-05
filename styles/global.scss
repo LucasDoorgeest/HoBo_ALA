@@ -359,33 +359,38 @@ a {
 
 /* Register / Login */
 
+.hover:hover{
+    border-bottom: 1px solid #555;
+}
+
 .register{
     display: flex;
     width: 90vw;
     justify-content: center;
     margin: auto;
     gap: 50px;
-    padding: 0 2rem;
+    padding: 2rem;
     margin-bottom: 2rem;
 }
 
 .registerForm {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
     margin: 0 auto;
+    max-width: 40vw;
 
     .brand{
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: row;
+        justify-content: center;
         gap: 1rem;
         background-color: white;
         border: 1px solid $ghost;
         border-radius: 3px;
         padding: 5px;
-        width: 50%;
+        max-width: calc(20vw - 2rem)
     }
 
     form{
@@ -393,20 +398,32 @@ a {
         flex-direction: column;
         gap: 1rem;
 
+        article{
+            min-width: calc(20vw - 2rem);
+        }
+
         input {
             padding: 0.5rem;
             border-radius: 0.5rem;
             border: 1px solid $ghost;
             transition: all 0.3s ease;
+            width: 100%;
 
-            .submitbutton{
-                background: #3e43fb;
-            }
 
             &:focus {
                 outline: none;
                 border: 1px solid $blue;
             }
+        }
+
+        .checkbox-terms{
+            width: 1rem;
+        }
+
+        .submitbutton{
+            background-color: #3e43fb;
+            color: #fff;
+            width: calc(40vw - 2rem);
         }
 
         button {
@@ -428,10 +445,10 @@ a {
         }
         .passwordform{
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
         }
         .emailform{
-            width: 100%;
+            width: calc(40vw - 2rem);
         }
     }
 }
@@ -447,6 +464,7 @@ a {
     border-radius: 2rem;
     border: 1px solid $ghost;
     background-position: 75% 25%;
+    max-width: 40vw;
 
     .ghost{
         color: $ghost;
@@ -454,6 +472,10 @@ a {
         top: 90%;
         bottom: 100%;
     }
+}
+
+.passwordform-login{
+    width: calc(40vw - 2rem);
 }
 
 /* Footer */
