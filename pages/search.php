@@ -2,7 +2,7 @@
 include_once "../php/basicIncludes.php";
 include_once "../php/klantOnly.php";
 
-$head = new HeadComponent("Search", ["/styles/global.css"], []);
+$head = new HeadComponent("Search", ["/styles/global.css"], ["/script/custombg.js"]);
 
 $series = [];
 
@@ -34,9 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
 
     $series = fetchSqlAll($query, $params);
-
-    print($query);
-    print_r($params);
 
 }
 
@@ -94,7 +91,7 @@ $genres = fetchSqlAll("SELECT * FROM genre");
         ?>
         <a href="/pages/serie.php?id=<?php echo $serie["SerieID"] ?>">
             <section class="serieCardWrap">
-                    <img src="<?php echo $serie["image"] ?>" alt="Serie image">
+                    <img class="bgsupport" src="<?php echo $serie["image"] ?>" alt="Serie image">
                     <p><?php echo $serie["SerieTitel"] ?></p>
             </section>
         </a>

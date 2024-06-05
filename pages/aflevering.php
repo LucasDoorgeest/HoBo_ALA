@@ -23,9 +23,10 @@ echo "<script>const klantID = $klantID; const aflID = $aflID; const serieID = $s
 <main>
     <div id="blurBg"></div>
     <?php 
-        echo afleveringCard($_GET['id']); 
         $serieID = getSerieIdByAflId($_GET['id']);
         echo serieCard($serieID);
+
+        echo afleveringCard($_GET['id']); 
     
     
     

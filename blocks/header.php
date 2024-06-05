@@ -34,6 +34,8 @@ function headerBlock() {
             if (window.location.href.includes("?")) {
                 window.location.href = `/pages/search.php?q=${search}&${window.location.href.split("?")[1].split("&").filter((param) => !param.includes("q")).join("&")}`;
                 return;
+            } else {
+                window.location.href = `/pages/search.php?q=${search}`;
             }
         }
 

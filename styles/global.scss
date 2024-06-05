@@ -121,10 +121,6 @@ header {
     padding: 0.5rem;
 }
 
-.d-none {
-    display: none;
-}
-
 img {
     border-radius: 0.5rem;
     object-fit: contain;
@@ -154,11 +150,11 @@ main {
         max-width: unset !important;
         height: 100%;
         z-index: -1;
-        background-image: url("../img/bg/00006.jpg");
         background-repeat: repeat-y;
-        opacity: 0.25;
+        opacity: 0.15;
         background-size: cover;
         filter: blur(75px);
+        transition: all 0.5s ease;
     }
 
 }
@@ -342,6 +338,8 @@ main {
         font-weight: 600;
         text-shadow: 2px 2px 5px rgba($color: white, $alpha: .25);
         text-align: center;
+        height: 40px;
+        overflow: hidden;
     }
 }
 
@@ -505,6 +503,10 @@ footer{
     left: 0;
     margin-top: 15%;
 
+}
+
+.d-none {
+    display: none !important;
 }
 
 /* Responsive */
