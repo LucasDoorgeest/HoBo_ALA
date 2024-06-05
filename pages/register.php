@@ -49,37 +49,57 @@ $head = [
 <html lang="nl"></html>
 <?php head($head); ?>
 <?php headerBlock(); ?>
-<main>
-    <article>
-        <i class="fa-brands fa-apple"></i>Sign up with Apple
+<main class="register">
+    <section class="registerForm">
+        <article>
+            <h1>Sign up</h1>
+            <p>Register to log in to your admin panel</p>
+        </article>
+        <button class="brand">
+            <i class="fa-brands fa-apple"></i>
+            <p>Sign up with Apple</p>
+        </button>
+        <button class="brand">
+            <i class="fa-brands fa-google"></i>
+            <p>Sign up with Google</p>
+        </button>
+        <form action="" method="post">
+            <article>
+                <p>Email</p>
+                <input class="ghost border-info emailform" type="email" name="email" placeholder="example@example.com">
+            </article>
+            <article class="passwordform">
+                <article>
+                    <p>Password</p>
+                    <input class="ghost border-info" type="password" name="password" placeholder="Your password">
+                </article>
+                <article>
+                    <p>Repeat</p>
+                    <input class="ghost border-info" type="password" name="passwordRepeat" placeholder="Repeat password">
+                </article>
+            </article>
+            <article>
+                <input name="cb" type="checkbox">
+                <label>I have read and accept</label>
+                <a href="#">terms &amp; conditions</a>
+            </article>
+            <article>
+                <input class="submitbutton" type="submit" value="Register">
+            </article>
+            <article>
+                <span class="ghost"> Already have an account? </span>
+                <a href="/pages/login.php">Sign in</a>
+            </article>
+        </form>
+    </section>
+    <article class="infologin">
+        <h1>Hobo</h1>
+        <article>
+            <h1>Start your journey through our expansive library</h1>
+            <p>You are one step away from discovering greatness</p>
+        </article>
+        <p class="ghost">Art by Tirachard Kumtanom</p>
     </article>
-    <article>
-        <i class="fa-brands fa-google"></i>Sign up with Google
-    </article>
-    <form action="" method="post">
-        <article>
-            <p>Email</p>
-            <input type="email" name="email" placeholder="example@example.com">
-        </article>
-        <article>
-            <p>Password</p>
-            <input type="password" name="password" placeholder="Your password">
-        </article>
-        <article>
-            <p>Repeat password</p>
-            <input type="password" name="passwordRepeat" placeholder="Repeat password">
-        </article>
-        <input name="cb" type="checkbox">
-        <label>I have read and accept</label>
-        <a href="#">terms &amp; conditions</a>
-        <article>
-            <input type="submit" value="Register">
-        </article>
-        <article>
-           <span class="ghost"> Already have an account? </span>
-           <a href="/pages/login.php">Sign in</a>
-        </article>
-    </form>
 </main>
 <?php footer(); ?>
 </body>
