@@ -3,7 +3,7 @@
 $servername = "localhost:3306";
 $databasename = "hobo";
 $username = "root";
-$password = "root";
+$password = "aqw469elg019!";
 
 
 try {
