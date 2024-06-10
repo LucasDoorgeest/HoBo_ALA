@@ -333,8 +333,13 @@ a {
   flex-direction: column;
   gap: 1rem;
 }
+<<<<<<< Updated upstream
 .registerForm form article {
   min-width: calc(20vw - 2rem);
+=======
+.registerForm form .ghost {
+  color: #999999;
+>>>>>>> Stashed changes
 }
 .registerForm form input {
   padding: 0.5rem;
