@@ -63,26 +63,20 @@ function serieCard($id) {
     }
     ?>
     <article class="serieCard">
-        <section class="cardHeading">
-            <section class="titleWrap">
-                <section class="title">
-                    <h2 class="serieInfoTitle"><?php echo $serieInfo["title"]; ?></h2>
-                    <section class="undertitleinfoWrap">
-                        <span class="years"><?php echo $serieInfo["years"]["begin"] . " - " . $serieInfo["years"]["end"]?$serieInfo["years"]["end"]:"nu"; ?></span>
-                        <span class="dividor"> | </span>
-                        <span class="duration"><?php echo $serieInfo["duration"]; ?></span>
-                    </section>
+    <img class="serieInfoImg" src="<?php echo $serieInfo["image"]; ?>" alt="<?php echo $serieInfo["title"]; ?>">
+    <section class="cardHeading">
+        <section class="titleWrap">
+            <section class="title">
+                <h2 class="serieInfoTitle"><?php echo $serieInfo["title"]; ?></h2>
+                <section class="undertitleinfoWrap">
+                    <span class="years"><?php echo $serieInfo["years"]["begin"] . " - " . $serieInfo["years"]["end"]?$serieInfo["years"]["end"]:"nu"; ?></span>
+                    <span class="dividor"> | </span>
+                    <span class="duration"><?php echo $serieInfo["duration"]; ?></span>
                 </section>
-                <button class="likeButton">    
-                    <img class="likeIcon" src="/img/heart-icon.svg" alt="Like icon" >
-                </button>
             </section>
-
-            <section class="rating">
-                <p>IMDb Rating:</p>
-                <p class="rating-score"><?php echo $serieInfo["rating"]; ?></p>
-            </section>
-
+            <button class="likeButton">    
+                <img class="likeIcon" src="/img/heart-icon.svg" alt="Like icon" >
+            </button>
         </section>
         <table class="moreinfoWrap">
             <tr>
@@ -98,11 +92,13 @@ function serieCard($id) {
                 <td><?php echo $serieInfo["genre"]; ?></td>
             </tr>
         </table>
-            
+    </section>
 
 
-
-        <img class="serieInfoImg" src="<?php echo $serieInfo["image"]; ?>" alt="<?php echo $serieInfo["title"]; ?>">
+    <section class="rating">
+        <p>IMDb Rating:</p>
+        <p class="rating-score"><?php echo $serieInfo["rating"]; ?></p>
+    </section>
     </article>
     <?php
 }

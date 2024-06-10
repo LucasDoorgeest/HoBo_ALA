@@ -115,28 +115,27 @@ main #blurBg {
   max-width: unset !important;
   height: 100%;
   z-index: -1;
-  background-repeat: repeat-y;
-  opacity: 0.15;
-  background-size: cover;
-  filter: blur(75px);
+  background-repeat: repeat;
+  opacity: 0.4;
+  background-size: contain;
+  filter: blur(40px);
   transition: all 0.5s ease;
 }
 
 .serieCard {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 90%;
+  display: flex;
   max-width: 1350px;
   margin: 0.5rem auto 2rem auto;
+  justify-content: space-between;
   gap: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
-  grid-template-areas: "img cardHeading cardHeading" "img description moreinfo" "img imgs imgs";
 }
 .serieCard .cardHeading {
-  grid-area: cardHeading;
   display: flex;
-  justify-content: space-between;
+  flex: 1;
+  gap: 2rem;
+  flex-direction: column;
 }
 .serieCard .titleWrap {
   display: flex;
@@ -156,77 +155,23 @@ main #blurBg {
   margin: 5px;
   background-color: transparent;
   border: none;
-  transition: all 0.3s ease;
-}
-.serieCard .titleWrap .likeButton:hover {
-  cursor: pointer;
-}
-.serieCard .titleWrap .likeButton:focus {
-  outline: none;
-}
-.serieCard .titleWrap .likeButton:active {
-  transform: scale(0.9);
-}
-.serieCard .titleWrap .likeButton:hover img {
-  transform: scale(1.1);
 }
 .serieCard .titleWrap .seriesTitle {
   font-size: 1.75rem;
   font-weight: 600;
 }
 .serieCard .moreinfoWrap {
-  grid-area: moreinfo;
   display: flex;
   flex-direction: column;
-  align-self: center;
 }
 .serieCard .seriesImg {
-  grid-area: img;
   width: 100%;
   min-height: 250px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
-.serieCard .seriesDescription {
-  grid-area: description;
-  align-self: center;
-}
 .serieCard .rating {
-  grid-area: rating;
   align-self: flex-start;
   justify-self: flex-end;
-}
-.serieCard .imgs {
-  grid-area: imgs;
-  overflow: hidden;
-  align-self: flex-end;
-  position: relative;
-  background-color: rgba(91, 155, 213, 0.25);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-}
-.serieCard .imgs .leftArrow, .serieCard .imgs .rightArrow {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(91, 155, 213, 0.25);
-  border-radius: 100vw;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  color: white;
-  transition: all 0.3s ease;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-.serieCard .imgs .leftArrow {
-  left: 16px;
-}
-.serieCard .imgs .rightArrow {
-  right: 16px;
 }
 
 .scrollableWrap {
