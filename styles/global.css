@@ -240,51 +240,70 @@ a {
 }
 
 /* Register / Login */
+.hover:hover {
+  border-bottom: 1px solid #555;
+}
+
 .register {
   display: flex;
   width: 90vw;
   justify-content: center;
   margin: auto;
   gap: 50px;
-  padding: 0 2rem;
+  padding: 2rem;
   margin-bottom: 2rem;
 }
 
 .registerForm {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   margin: 0 auto;
+  max-width: 40vw;
 }
 .registerForm .brand {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: row;
+  justify-content: center;
   gap: 1rem;
   background-color: white;
   border: 1px solid #999999;
   border-radius: 3px;
   padding: 5px;
-  width: 50%;
+  max-width: calc(20vw - 2rem);
 }
 .registerForm form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+<<<<<<< Updated upstream
+.registerForm form article {
+  min-width: calc(20vw - 2rem);
+=======
+.registerForm form .ghost {
+  color: #999999;
+>>>>>>> Stashed changes
+}
 .registerForm form input {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #999999;
   transition: all 0.3s ease;
-}
-.registerForm form input .submitbutton {
-  background: #3e43fb;
+  width: 100%;
 }
 .registerForm form input:focus {
   outline: none;
   border: 1px solid #5B9BD5;
+}
+.registerForm form .checkbox-terms {
+  width: 1rem;
+}
+.registerForm form .submitbutton {
+  background-color: #3e43fb;
+  color: #fff;
+  width: calc(40vw - 2rem);
 }
 .registerForm form button {
   padding: 0.5rem;
@@ -304,10 +323,10 @@ a {
 }
 .registerForm form .passwordform {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 .registerForm form .emailform {
-  width: 100%;
+  width: calc(40vw - 2rem);
 }
 
 .infologin {
@@ -321,12 +340,17 @@ a {
   border-radius: 2rem;
   border: 1px solid #999999;
   background-position: 75% 25%;
+  max-width: 40vw;
 }
 .infologin .ghost {
   color: #999999;
   position: absolute;
   top: 90%;
   bottom: 100%;
+}
+
+.passwordform-login {
+  width: calc(40vw - 2rem);
 }
 
 /* Footer */
