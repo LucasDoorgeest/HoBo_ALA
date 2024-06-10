@@ -325,13 +325,12 @@ a {
         flex-direction: column;
         gap: 1rem;
 
-<<<<<<< Updated upstream
-        article{
+        article {
             min-width: calc(20vw - 2rem);
-=======
-        .ghost{
+            
+            .ghost {
             color: $ghost;
->>>>>>> Stashed changes
+            }
         }
 
         input {
