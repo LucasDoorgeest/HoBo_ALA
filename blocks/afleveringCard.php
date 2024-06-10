@@ -1,14 +1,8 @@
 <?php
 
 function afleveringCard($id) {
-
-    $query = "
-        select * from aflevering
-        where AfleveringID = ?
-        ;";
-
+    $query = "select * from aflevering where AfleveringID = ?;";
     $aflevering = fetchSql($query, [$id]);
-
     $serieID = getSerieIdByAflId($id);
 
     $query = "

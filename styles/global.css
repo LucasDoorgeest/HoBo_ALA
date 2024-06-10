@@ -1,3 +1,5 @@
+/* Basic variables */
+/* Global styling */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +7,97 @@
   list-style: none;
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  height: 100px;
+  padding: 1.25rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header figure#logo, header figure#logo img {
+  height: 100%;
+}
+
+.logo-img-small {
+  display: none;
+}
+
+header nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#searchWrap {
+  display: flex;
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(91, 155, 213, 0.25);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+#searchWrap *:focus {
+  outline: none;
+}
+#searchWrap:hover {
+  background-color: rgba(91, 155, 213, 0.5);
+}
+
+#searchWrap * {
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+#searchWrap #searchText {
+  width: 75%;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+#searchWrap button {
+  width: 36px;
+  height: 36px;
+  border-radius: 100vw;
+  background-color: white;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+#searchWrap button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Background styling */
+#blurBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: unset !important;
+  height: 100%;
+  z-index: -1;
+  background-repeat: repeat;
+  opacity: 0.4;
+  background-size: contain;
+  filter: blur(40px);
+  transition: all 0.5s ease;
+}
+
+/* Main styling */
 main {
   display: flex;
   flex-direction: column;
@@ -18,78 +111,10 @@ main > * {
   max-width: 1350px;
 }
 
+/* Basic elements */
 h2 {
   font-size: 2rem;
   font-weight: 600;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 2rem;
-  height: 100px;
-}
-header figure#logo {
-  height: 100%;
-}
-header figure#logo img {
-  height: 100%;
-}
-header nav {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-header nav #searchWrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 100vw;
-  padding: 0.5rem;
-  width: 15.63rem;
-  background-color: rgba(91, 155, 213, 0.25);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-header nav #searchWrap * {
-  font-family: "Montserrat", sans-serif;
-  border: none;
-  background: none;
-  outline: none;
-}
-header nav #searchWrap #searchText {
-  width: 75%;
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-header nav #searchWrap button {
-  background-color: white;
-  color: #fff;
-  border-radius: 100vw;
-  width: 36px;
-  height: 36px;
-  transition: all 0.3s ease;
-  will-change: transform;
-}
-header nav #searchWrap button img {
-  outline: 2px solid white;
-}
-header nav #searchWrap button:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-header nav #searchWrap *:focus {
-  outline: none;
-}
-header nav #searchWrap:hover {
-  background-color: rgba(91, 155, 213, 0.5);
-}
-
-.logo-img-small {
-  display: none;
 }
 
 .blueBox {
@@ -106,47 +131,34 @@ img {
   max-width: 30vw;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  scroll-behavior: smooth;
-}
-
-main {
-  flex: 1;
-  position: relative;
-}
-main #blurBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: unset !important;
-  height: 100%;
-  z-index: -1;
-  background-repeat: repeat;
-  opacity: 0.4;
-  background-size: contain;
-  filter: blur(40px);
-  transition: all 0.5s ease;
-}
-
+/* Serie card styling */
 .serieCard {
   display: flex;
-  max-width: 1350px;
-  margin: 0.5rem auto 2rem auto;
   justify-content: space-between;
-  gap: 1rem;
   font-weight: 500;
   font-size: 18px;
+  gap: 1rem;
 }
+
 .serieCard .cardHeading {
   display: flex;
   flex: 1;
   gap: 2rem;
   flex-direction: column;
+}
+
+.serieCard .moreinfoWrap {
+  display: flex;
+  flex-direction: column;
+}
+.serieCard .serieImg {
+  width: 100%;
+  min-height: 250px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.serieCard .rating {
+  align-self: flex-start;
+  justify-self: flex-end;
 }
 .serieCard .titleWrap {
   display: flex;
@@ -171,26 +183,13 @@ main #blurBg {
   font-size: 1.75rem;
   font-weight: 600;
 }
-.serieCard .moreinfoWrap {
-  display: flex;
-  flex-direction: column;
-}
-.serieCard .seriesImg {
-  width: 100%;
-  min-height: 250px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-}
-.serieCard .rating {
-  align-self: flex-start;
-  justify-self: flex-end;
-}
 
+/* Scrollable styling */
 .scrollableWrap {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   scrollbar-width: none;
-  max-height: 100%;
 }
 
 .seriesList img {

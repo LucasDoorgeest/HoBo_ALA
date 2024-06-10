@@ -2,7 +2,11 @@
 include_once "../php/basicIncludes.php";
 include_once "../php/klantOnly.php";
 
-$head = new HeadComponent("Search", ["/styles/global.css"], ["/script/custombg.js"]);
+$head = new HeadComponent(
+    "Search",
+    ["/styles/global.css"],
+    ["/script/custombg.js"]
+);
 
 $series = [];
 
@@ -17,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     if ($genre) {
         $query .= " inner join serie_genre on serie.SerieID = serie_genre.SerieID
         WHERE GenreID = ?";
-    ";";
+        ";";
         $params[] = $genre;
     }
 
@@ -34,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
 
     $series = fetchSqlAll($query, $params);
-
 }
 
 foreach ($series as $key => $serie) {
@@ -50,63 +53,65 @@ $genres = fetchSqlAll("SELECT * FROM genre");
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
-
-<?php headerBlock(); ?>
-
-<main>
-    <div id="blurBg"></div>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
+<body>
+    <?php HeaderComponent::render(); ?>
+    <main>
+        <div id="blurBg"></div>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
         ?>
 
-        <script>
-            document.getElementById("searchText").value = "<?php echo $_GET["q"] ?>";
-        </script>
+            <script>
+                document.getElementById("searchText").value = "<?php echo $_GET["q"] ?>";
+            </script>
 
         <?php
-    }
-    ?>
+        }
+        
+        ?>
 
-    <section id="searchHeading">
-        <a href="/pages/search.php?q=<?php echo $_GET['q'] ?>">
-            <button class="<?php if (!isset($_GET["genre"])) { echo "active"; } ?>">All</button>
-        </a>
-        <?php
-            foreach ($genres as $genre) {
+        <section id="searchHeading">
+            <a href="/pages/search.php?q=<?php echo $_GET['q'] ?>">
+                <button class="<?php if (!isset($_GET["genre"])) { echo "active"; } ?>">All</button>
+            </a>
+            <?php foreach ($genres as $genre) { 
+                $link = "/pages/search.php?q=" . $_GET["q"] . "&genre=" . $genre["GenreID"];
+                $buttonActive = isset($_GET["genre"]) && $_GET["genre"] == $genre["GenreID"];
                 ?>
-                <a href="<?php echo "/pages/search.php?q=" . $_GET["q"] . "&genre=" . $genre["GenreID"] ?>">
-                    <button class="<?php if (isset($_GET["genre"]) && $_GET["genre"] == $genre["GenreID"]) { echo "active"; } ?>"><?php echo $genre["GenreNaam"] ?></button>
+                <a href="<?php echo $link ?>">
+                    <button class="<?php $buttonActive?"active":""?>">
+                        <?php echo $genre["GenreNaam"] ?>
+                    </button>
                 </a>
-                <?php
+            <?php } ?>
+        </section>
+
+
+        <section class="searchResults">
+            <?php
+
+            foreach ($series as $serie) {
+
+            ?>
+                <a href="/pages/serie.php?id=<?php echo $serie["SerieID"] ?>">
+                    <section class="serieCardWrap">
+                        <img class="bgsupport" src="<?php echo $serie["image"] ?>" alt="Serie image">
+                        <p><?php echo $serie["SerieTitel"] ?></p>
+                    </section>
+                </a>
+
+
+            <?php
             }
-        ?>
-    </section>
+            if (count($series) == 0) {
+            ?>
+                <h1 class="Error">Oops, niks gevonden</h1>
+            <?php
+            }
+            ?>
+        </section>
+    </main>
+    <?php FooterComponent::render(); ?>
+</body>
 
-    
-    <section class="searchResults">
-    <?php
-
-    foreach ($series as $serie) {
-
-        ?>
-        <a href="/pages/serie.php?id=<?php echo $serie["SerieID"] ?>">
-            <section class="serieCardWrap">
-                    <img class="bgsupport" src="<?php echo $serie["image"] ?>" alt="Serie image">
-                    <p><?php echo $serie["SerieTitel"] ?></p>
-            </section>
-        </a>
-
-
-        <?php
-    }
-
-
-    if (count($series) == 0) {
-        ?>
-        <h1 class="Error">Oops, niks gevonden</h1>
-        <?php
-    }
-
-    ?>
-    </section>
-</main>
+</html>

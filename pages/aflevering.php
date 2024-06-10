@@ -19,19 +19,17 @@ echo "<script>const klantID = $klantID; const aflID = $aflID; const serieID = $s
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
-<?php headerBlock(); ?>
-<main>
-    <div id="blurBg"></div>
-    <?php 
-        $serieID = getSerieIdByAflId($_GET['id']);
-        echo serieCard($serieID);
+<body>
+    <?php HeaderComponent::render(); ?>
+    <main>
+        <div id="blurBg"></div>
+        <?php 
+            $serieID = getSerieIdByAflId($_GET['id']);
+            echo serieCard($serieID);
 
-        echo afleveringCard($_GET['id']); 
-    
-    
-    
-    ?>
-
-</main>
-<?php footer(); ?>
+            echo afleveringCard($_GET['id']); 
+        ?>
+    </main>
+    <?php FooterComponent::render(); ?>
 </body>
+</html>

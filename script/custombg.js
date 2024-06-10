@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 700);
             }
             lastImg = img;
-
-
         });
     });
 

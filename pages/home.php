@@ -6,21 +6,15 @@ $head = new HeadComponent(
     ["/styles/global.css"],
     ["/script/slides.js", "/script/custombg.js"]
 );
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render() ?>
-
-
 <body>
-    <?php headerBlock(); ?>
+    <?php HeaderComponent::render(); ?>
     <main>
         <div id="blurBg"></div>
-
-
         <section>
             <h2>Todays topper</h2>
             <?php
@@ -45,13 +39,10 @@ $head = new HeadComponent(
             scrollableList($cards);
             ?>
         </section>
-
-
         <section>
             <h2>Je favoriete genre toppers</h2>
 
             <?php
-
             $query = "
                 select * from serie 
                 inner join serie_genre on serie.SerieID = serie_genre.SerieID
@@ -59,31 +50,23 @@ $head = new HeadComponent(
                 ;
             ";
             $items = fetchSqlAll($query, [$_SESSION["user"]["Genre"]]);
-
             $cards = [];
-
-
-
             foreach ($items as $key => $item) {
                 $cards[] = [
                     "title" => $item["SerieTitel"],
                     "img" => getImgPathBySerieId($item["SerieID"]),
                     "link" => "/pages/serie.php?id=" . $item["SerieID"]
                 ];
-
-
             }
 
             scrollableList($cards);
             ?>
         </section>
-
         <section>
             <h2>Editor picks</h2>
 
             <?php
             $picks = [14, 15, 16, 17, 18];
-
             $cards = [];
 
             foreach ($picks as $key => $item) {
@@ -99,12 +82,8 @@ $head = new HeadComponent(
 
             scrollableList($cards);
             ?>
-
         </section>
-
     </main>
-
-    <?php footer(); ?>
+    <?php FooterComponent::render(); ?>
 </body>
-
 </html>
