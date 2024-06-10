@@ -10,7 +10,7 @@ function scrollableList($items) {
                 ?>
                 <a href="<?php echo $item["link"] ?>">
                     <div class="scrollableCard">
-                        <img class="scrollableImg" src="<?php echo $item["img"] ?>" alt="<?php echo $item["title"] ?>">
+                        <img class="scrollableImg bgsupport" src="<?php echo $item["img"] ?>" alt="<?php echo $item["title"] ?>">
                         <p><?php echo $item["title"] ?></p> 
 
 
