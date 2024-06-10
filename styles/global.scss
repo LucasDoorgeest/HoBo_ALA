@@ -14,6 +14,13 @@ $layout-breakpoint-medium: 768px;
 $layout-breakpoint-large: 480px;
 $ghost: #999999;
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 3rem;
+}
+
 main > * {
     width: 90%;
     margin: 0 auto;
@@ -227,7 +234,6 @@ main {
 }
 
 .seriesList {
-    margin: 1rem auto;
     img {
         width: 200px;
         height: 100%;

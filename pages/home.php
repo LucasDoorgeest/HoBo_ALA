@@ -35,18 +35,9 @@ $head = new HeadComponent(
             $cards = [];
 
             foreach ($items as $key => $item) {
-
-                $len = strlen((string) $item["SerieID"]);
-                $imgpath = str_repeat("0", 5 - $len) . $item["SerieID"] . ".jpg";
-                if (!file_exists("../img/series/images/" . $imgpath)) {
-                    $imgpath = "error.png";
-                }
-
-
-
                 $cards[] = [
                     "title" => $item["SerieTitel"],
-                    "img" => "/img/series/images/" . $imgpath,
+                    "img" => getImgPathBySerieId($item["SerieID"]),
                     "link" => "/pages/aflevering.php?id=" . $item["AfleveringID"]
                 ];
             }
@@ -74,16 +65,9 @@ $head = new HeadComponent(
 
 
             foreach ($items as $key => $item) {
-
-                $len = strlen((string) $item["SerieID"]);
-                $imgpath = str_repeat("0", 5 - $len) . $item["SerieID"] . ".jpg";
-                if (!file_exists("../img/series/images/" . $imgpath)) {
-                    $imgpath = "error.png";
-                }
-
                 $cards[] = [
                     "title" => $item["SerieTitel"],
-                    "img" => "/img/series/images/" . $imgpath,
+                    "img" => getImgPathBySerieId($item["SerieID"]),
                     "link" => "/pages/serie.php?id=" . $item["SerieID"]
                 ];
 
@@ -92,6 +76,30 @@ $head = new HeadComponent(
 
             scrollableList($cards);
             ?>
+        </section>
+
+        <section>
+            <h2>Editor picks</h2>
+
+            <?php
+            $picks = [14, 15, 16, 17, 18];
+
+            $cards = [];
+
+            foreach ($picks as $key => $item) {
+                $query = "select * from serie where SerieID = ?;";
+                $serie = fetchSql($query, [$item]);
+
+                $cards[] = [
+                    "title" => "Serie " . $serie["SerieTitel"],
+                    "img" => getImgPathBySerieId($item),
+                    "link" => "/pages/serie.php?id=" . $item
+                ];
+            }
+
+            scrollableList($cards);
+            ?>
+
         </section>
 
     </main>

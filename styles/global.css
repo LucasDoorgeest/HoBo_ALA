@@ -5,6 +5,13 @@
   list-style: none;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
 main > * {
   width: 90%;
   margin: 0 auto;
@@ -182,9 +189,6 @@ main #blurBg {
   max-height: 100%;
 }
 
-.seriesList {
-  margin: 1rem auto;
-}
 .seriesList img {
   width: 200px;
   height: 100%;
