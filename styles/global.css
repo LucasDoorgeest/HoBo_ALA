@@ -405,15 +405,4 @@ footer a, footer p {
   display: none !important;
 }
 
-/* Responsive */
-@media screen and (max-width: 1024px) {
-  header img {
-    max-width: 25vw;
-  }
-  header nav {
-    gap: 1rem;
-  }
-  header nav #searchWrap {
-    width: 100%;
-  }
-}/*# sourceMappingURL=global.css.map */
+/* Responsive *//*# sourceMappingURL=global.css.map */

@@ -473,24 +473,9 @@ footer{
 /* Responsive */
 
 @media screen and (max-width: $layout-breakpoint-small) {
-    header{
-        img{
-            max-width: 25vw;
-        }
-        nav{
-            gap: 1rem;
-            #searchWrap{
-                width: 100%;
-            }
-        
-        }
-    }
+
 }
 
 @media screen and (max-width: $layout-breakpoint-medium) {
-
-}
-
-@media screen and (max-width: $layout-breakpoint-large) {
 
 }
