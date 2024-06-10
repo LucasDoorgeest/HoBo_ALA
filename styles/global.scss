@@ -119,6 +119,9 @@ header {
 
     }
 }
+.logo-img-small {
+    display: none;
+}
 
 .blueBox {
     background-color: rgba($color: $blue, $alpha: .25);
@@ -488,6 +491,12 @@ footer{
 }
 
 @media screen and (max-width: $layout-breakpoint-medium) {
+    .logo-img-small {
+        display: block;
+    }
+    .logo-img {
+        display: none;
+    }
 
 }
 

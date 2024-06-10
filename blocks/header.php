@@ -4,7 +4,8 @@ function headerBlock() {
     <header>
         <figure id="logo">
             <a href="/pages/home.php">
-                <img src="/img/logo_full.png" alt="Logo">
+                <img class="logo-img" src="/img/logo_full.png" alt="Logo">
+                <img class="logo-img-small" src="/img/logo_small.png" alt="Logo">
                 <figcaption class="d-none">HoBo logo</figcaption>
             </a>
         </figure>
