@@ -1,14 +1,8 @@
 <?php
 
 function afleveringCard($id) {
-
-    $query = "
-        select * from aflevering
-        where AfleveringID = ?
-        ;";
-
+    $query = "select * from aflevering where AfleveringID = ?;";
     $aflevering = fetchSql($query, [$id]);
-
     $serieID = getSerieIdByAflId($id);
 
     $query = "
@@ -80,7 +74,6 @@ function afleveringCard($id) {
     <style>
         .fakePlayer {
             display: flex;
-            width: 100%;
             height: calc(1000px * 9 / 16);
             background-color: black;
             position: relative;
@@ -95,6 +88,8 @@ function afleveringCard($id) {
         }
 
         .fakePlayer .afleveringen {
+            display: flex;
+            flex-direction: column;
             width: 300px;
             height: 100%;
         }
@@ -109,6 +104,7 @@ function afleveringCard($id) {
             flex-direction: column;
             gap: 10px;
             margin-top: 10px;
+            overflow: auto;
         }
 
         .afleveringenWrap a {

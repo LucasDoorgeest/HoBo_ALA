@@ -1,6 +1,5 @@
 <?php
 include_once "../php/basicIncludes.php";
-include_once "../php/klantOnly.php";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -26,21 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-
-//Clean post data
-
-
-
 $head = new HeadComponent("Register", 
                         ["/styles/global.css"], 
-                        []);
+                        ["/script/register.js"]);
 ?>
 
 <!DOCTYPE html>
 <html lang="nl"></html>
 <?php $head->render(); ?>
-<?php headerBlock(); ?>
+<body>
+<?php HeaderComponent::render(); ?>
 <main class="register">
     <section class="registerForm">
         <article>
@@ -91,30 +85,7 @@ $head = new HeadComponent("Register",
         <p class="ghost">Art by Tirachard Kumtanom</p>
     </article>
 </main>
-<?php footer(); ?>
+<?php FooterComponent::render(); ?>
 </body>
-<script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-        const password = form.querySelector('input[name="password"]').value;
-        const email = form.querySelector('input[name="email"]').value;
-        const passwordRepeat = form.querySelector('input[name="passwordRepeat"]').value;
-
-
-        if (password.length < 8) {
-            e.preventDefault();
-            alert('Password must be at least 8 characters long');
-            return false;
-        }
-
-        if (password !== passwordRepeat) {
-            e.preventDefault();
-            alert('Passwords do not match');
-            return false;
-        }
-
-        return true;
-    });
-</script>
 </html>
 

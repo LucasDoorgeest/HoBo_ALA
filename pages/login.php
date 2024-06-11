@@ -18,9 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-
-
 $head = new HeadComponent("Login", 
                         ["/styles/global.css"], 
                         []);
@@ -29,7 +26,7 @@ $head = new HeadComponent("Login",
 <!DOCTYPE html>
 <html lang="nl"></html>
 <?php $head->render(); ?>
-<?php headerBlock(); ?>
+<?php HeaderComponent::render(); ?>
 <main class="register">
     <section class="registerForm">
         <article>
@@ -71,7 +68,7 @@ $head = new HeadComponent("Login",
         <p class="ghost">Art by Tirachard Kumtanom</p>
     </article>
 </main>
-<?php footer(); ?>
+<?php FooterComponent::render(); ?>
 </body>
 </html>
 
