@@ -70,7 +70,10 @@ header nav {
 
     &:hover {
         background-color: rgba($color: $blue, $alpha: .5);
-        width: 20rem;
+    }
+
+    input {
+        width: 100%;
     }
 }
 
@@ -153,7 +156,6 @@ h2 {
 img {
     border-radius: 0.5rem;
     object-fit: contain;
-    max-width: 30vw;
 }
 
 .button {

@@ -26,19 +26,23 @@ $randInt = rand(1, 500);
         </section>
 
         <?php
-            $items = getHistory($_SESSION["user"]["KlantNr"]);
-            scrollableList("Latst gekeken" ,$items);
+            if (isset($_SESSION["user"])) {
+                $items = getHistory($_SESSION["user"]["KlantNr"]);
+                scrollableList("Latst gekeken" ,$items);
+            }
         ?>
 
     <?php
-        $query = "
-        select * from serie 
-        inner join serie_genre on serie.SerieID = serie_genre.SerieID
-        where GenreID = ?
-        ;
-        ";
-        $items = fetchSqlAll($query, [$_SESSION["user"]["Genre"]]);
-        scrollableList("Je favoriete genre toppers", $items);
+        if (isset($_SESSION["user"])){
+            $query = "
+            select * from serie 
+            inner join serie_genre on serie.SerieID = serie_genre.SerieID
+            where GenreID = ?
+            ;
+            ";
+            $items = fetchSqlAll($query, [$_SESSION["user"]["Genre"]]);
+            scrollableList("Je favoriete genre toppers", $items);
+        }
     ?>
 
         <?php
