@@ -32,6 +32,14 @@ function serieCard($id) {
     if ($genre != null) {
         $genre = $genre["GenreNaam"];
     }
+
+    if ($totalDuration > 60) {
+        $hours = floor($totalDuration / 60);
+        $minutes = $totalDuration % 60;
+        $totalDuration = $hours . "h " . $minutes . "m";
+    } else {
+        $totalDuration = $totalDuration . "m";
+    }
   
 
     $serieInfo = [
@@ -42,13 +50,16 @@ function serieCard($id) {
             "begin" => $beginYear,
             "end" => $endYear
         ],
-        "duration" => $totalDuration . "min",
+        "duration" => $totalDuration,
         "seasons" => count($seasons),
         "episodes" => $totalEpisodes,
         "genre" => $genre,
         "rating" => $rating,
         "image" => getImgPathBySerieId($id)
     ];
+
+    // print_r($serieInfo);
+
 
     foreach($serieInfo as $key => $value) {
         if ($value == null) {
@@ -61,6 +72,11 @@ function serieCard($id) {
             }
         }
     }
+
+    $years = $serieInfo["years"]["begin"];
+    if ($serieInfo["years"]["end"] != $serieInfo["years"]["begin"]) {
+        $years .= " - " . $serieInfo["years"]["end"];
+    }
     ?>
     <article class="serieCard">
     <img class="serieInfoImg" src="<?php echo $serieInfo["image"]; ?>" alt="<?php echo $serieInfo["title"]; ?>">
@@ -69,14 +85,11 @@ function serieCard($id) {
             <section class="title">
                 <h2 class="serieInfoTitle"><?php echo $serieInfo["title"]; ?></h2>
                 <section class="undertitleinfoWrap">
-                    <span class="years"><?php echo $serieInfo["years"]["begin"] . " - " . $serieInfo["years"]["end"]?$serieInfo["years"]["end"]:"nu"; ?></span>
+                    <span class="years"><?php echo $years ?></span>
                     <span class="dividor"> | </span>
                     <span class="duration"><?php echo $serieInfo["duration"]; ?></span>
                 </section>
             </section>
-            <button class="likeButton">    
-                <img class="likeIcon" src="/img/heart-icon.svg" alt="Like icon" >
-            </button>
         </section>
         <table class="moreinfoWrap">
             <tr>

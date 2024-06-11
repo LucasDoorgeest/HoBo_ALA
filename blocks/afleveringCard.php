@@ -30,7 +30,20 @@ function afleveringCard($id) {
 
     ?>
 
-    <h2><?php echo $aflevering["AflTitel"]; ?></h2>
+    <section class="flexWrap">
+
+    
+        <section>
+            <h2><?php echo $aflevering["AflTitel"]; ?></h2>
+            <p>Duur: <?php echo $aflevering["Duur"] ?> m</p>
+        </section>
+
+        <section class="rating">
+        <p>IMDb Rating:</p>
+        <p class="rating-score"><?php echo $aflevering["Rang"] ?></p>
+    </section>
+    
+    </section>
 
     <section class="fakePlayer">
         <video controls>

@@ -40,8 +40,8 @@ $head = new HeadComponent("Aflevering",
                 "link" => "/pages/aflevering.php?id=" . $episode["AfleveringID"]
             ];
         }
-        echo "<h3>Seizoen " . $key + 1 . "</h3>";
-        scrollableList($items);   
+        $seiz =  $key + 1;
+        scrollableList("Seizoen $seiz", $items);   
     }
     ?>
 </main>

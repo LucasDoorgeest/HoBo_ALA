@@ -72,14 +72,14 @@ $genres = fetchSqlAll("SELECT * FROM genre");
 
         <section id="searchHeading">
             <a href="/pages/search.php?q=<?php echo $_GET['q'] ?>">
-                <button class="<?php if (!isset($_GET["genre"])) { echo "active"; } ?>">All</button>
+                <button class="button<?php if (!isset($_GET["genre"])) { echo " active"; } ?>">All</button>
             </a>
             <?php foreach ($genres as $genre) { 
                 $link = "/pages/search.php?q=" . $_GET["q"] . "&genre=" . $genre["GenreID"];
                 $buttonActive = isset($_GET["genre"]) && $_GET["genre"] == $genre["GenreID"];
                 ?>
                 <a href="<?php echo $link ?>">
-                    <button class="<?php $buttonActive?"active":""?>">
+                    <button class="button<?php echo $buttonActive?" active":""?>">
                         <?php echo $genre["GenreNaam"] ?>
                     </button>
                 </a>

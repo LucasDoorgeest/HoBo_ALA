@@ -1,5 +1,6 @@
 /* Basic variables */
 $blue: #5B9BD5;
+$green: #92D051;
 
 $maxWidth: 1350px;
 $layout-breakpoint-small: 1024px;
@@ -155,6 +156,35 @@ img {
     max-width: 30vw;
 }
 
+.button {
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 50vw;
+    border-width: 0;
+
+    background-color: rgba($color: $green, $alpha: .35);
+    box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
+
+    transition: all 0.3s ease;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba($color: $green, $alpha: .5);
+        outline: 1px solid rgba($color: $green, $alpha: .7)
+    }
+
+    &.active {
+        background-color: rgba($color: $blue, $alpha: .5);
+    }
+
+    //Button pressed effect
+    &:active {
+        transform: scale(0.90);
+    }
+}
+
 /* Serie card styling */
 
 .serieCard {
@@ -216,6 +246,20 @@ img {
             font-weight: 600;
         }
     }
+}
+
+.rating {
+    background-color: rgba($color: $blue, $alpha: .4);
+    box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
+    padding: 0.65rem;
+    border-radius: 1.5rem;
+
+    p.rating-score {
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
 }
 
 .serieInfoImg {
@@ -475,6 +519,11 @@ footer{
     left: 0;
     margin-top: 15%;
 
+}
+
+.flexWrap {
+    display: flex;
+    justify-content: space-between;
 }
 
 .d-none {
