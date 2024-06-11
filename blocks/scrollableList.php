@@ -22,10 +22,10 @@ function scrollableList($items) {
             
         </div>
 
-        <button class="leftArrow">
+        <button class="leftArrow arrow">
             <p><</p>
         </button>
-        <button class="rightArrow">
+        <button class="rightArrow arrow">
             <p>></p>
         </button>
 

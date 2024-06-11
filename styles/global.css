@@ -193,6 +193,15 @@ main #blurBg {
   width: 200px;
   height: 100%;
 }
+.seriesList .arrow {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+.seriesList .rightArrow {
+  position: absolute;
+  right: 0;
+}
 
 .searchResults {
   display: grid;

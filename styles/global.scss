@@ -238,6 +238,19 @@ main {
         width: 200px;
         height: 100%;
     }
+    .arrow{
+        border: none;
+        background-color: transparent;
+        font-size: 2rem;
+    }
+    .leftArrow{
+
+    }
+    .rightArrow{
+        position: absolute;
+        right: 0;
+        
+    }
 }
 
 .searchResults {
