@@ -8,7 +8,7 @@ if (!isset($_GET["id"])) {
 
 $head = new HeadComponent("Aflevering", 
                         ["/styles/global.css"], 
-                        ["/script/slides.js", "/script/aflevering.js", "/script/custombg.js"]);
+                        ["/script/slides.js", "/script/aflevering.js", "/script/custombg.js", "/script/lazyLoad.js"]);
 
 $klantID = $_SESSION["user"]["KlantNr"];
 $aflID = $_GET['id'];

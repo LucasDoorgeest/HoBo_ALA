@@ -3,7 +3,7 @@ include_once "../php/tools.php";
 
 function serieCard($id) {
     $serie = fetchSql("select * from serie where serie.SerieID = ?;", [$id]);
-    $genre = fetchSql("select GenreNaam from serie_genre 
+    $genre = fetchSqlAll("select GenreNaam from serie_genre 
                         join genre on serie_genre.GenreID = genre.GenreID 
                         where serie_genre.SerieID = ?;", [$id]);
     $seasons = fetchSqlAll("select * from seizoen where SerieID = ?", [$id]);
@@ -30,7 +30,7 @@ function serieCard($id) {
         $endYear = "N/A";
     }
     if ($genre != null) {
-        $genre = $genre["GenreNaam"];
+        $genre = join(", ", array_column($genre, "GenreNaam"));
     }
 
     if ($totalDuration > 60) {
@@ -54,8 +54,9 @@ function serieCard($id) {
         "seasons" => count($seasons),
         "episodes" => $totalEpisodes,
         "genre" => $genre,
-        "rating" => $rating,
-        "image" => getImgPathBySerieId($id)
+        "rating" => round($rating, 2),
+        "image" => getImgPathBySerieId($id),
+        "active" => $serie["Actief"]? "Yes" : "No"
     ];
 
     // print_r($serieInfo);
@@ -103,6 +104,10 @@ function serieCard($id) {
             <tr>
                 <td>Genre:</td>
                 <td><?php echo $serieInfo["genre"]; ?></td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><?php echo $serieInfo["active"]; ?></td>
             </tr>
         </table>
     </section>

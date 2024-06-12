@@ -5,7 +5,7 @@ include_once "../php/klantOnly.php";
 $head = new HeadComponent(
     "History",
     ["/styles/global.css"],
-    ["/script/slides.js", "/script/aflevering.js"]
+    ["/script/slides.js", "/script/aflevering.js", "/script/lazyLoad.js", "/script/custombg.js"]
 );
 
 // TODO: Create a grid of cards with the series that the user has watched
@@ -22,19 +22,43 @@ $head = new HeadComponent(
     <?php HeaderComponent::render(); ?>
     <main>
         <div id="blurBg"></div>
+
+        <h1>History</h1>
+
         <?php
-        $items = getHistory($_SESSION["user"]["KlantNr"]);
-        $cards = [];
+        $items = getFilteredHistory($_SESSION["user"]["KlantNr"]);
+
+        $today = [];
+        $lastWeek = [];
+        $lastMonth = [];
+        $earlier = [];
+
+        $todayDate = new DateTime();
+        $todayDate->setTime(0, 0, 0);
 
         foreach ($items as $key => $item) {
-            $cards[] = [
-                "title" => $item["SerieTitel"],
-                "img" => getImgPathBySerieId($item["SerieID"]),
-                "link" => "/pages/aflevering.php?id=" . $item["AfleveringID"]
-            ];
+            $date = new DateTime($item["d_eind"]);
+            $date->setTime(0, 0, 0);
+
+            if ($date == $todayDate) {
+                $today[] = $item;
+            } else if ($date > $todayDate->sub(new DateInterval("P7D"))) {
+                $lastWeek[] = $item;
+            } else if ($date > $todayDate->sub(new DateInterval("P30D"))) {
+                $lastMonth[] = $item;
+            } else {
+                $earlier[] = $item;
+            }
         }
-        scrollableList($cards);
+
+        renderHistoryItems("Today", $today);
+        renderHistoryItems("This week", $lastWeek);
+        renderHistoryItems("This month", $lastMonth);
+        renderHistoryItems("Earlier", $earlier);
+
+
         ?>
+
     </main>
     <?php FooterComponent::render(); ?>
 </body>

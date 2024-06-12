@@ -13,7 +13,7 @@ echo "<script>const userId = $userId; const serieId = $serieId;</script>";
 
 $head = new HeadComponent("Aflevering", 
                         ["/styles/global.css"], 
-                        ["/script/slides.js", "/script/custombg.js"]);
+                        ["/script/slides.js", "/script/custombg.js", "/script/lazyLoad.js"]);
 
 ?>
 

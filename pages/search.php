@@ -5,8 +5,13 @@ include_once "../php/klantOnly.php";
 $head = new HeadComponent(
     "Search",
     ["/styles/global.css"],
-    ["/script/custombg.js"]
+    ["/script/custombg.js", "/script/lazyLoad.js"]
 );
+
+if (!isset($_GET["q"])) {
+    $_GET["q"] = "";
+}
+
 
 $series = [];
 
@@ -95,7 +100,7 @@ $genres = fetchSqlAll("SELECT * FROM genre");
             ?>
                 <a href="/pages/serie.php?id=<?php echo $serie["SerieID"] ?>">
                     <section class="serieCardWrap">
-                        <img class="bgsupport" src="<?php echo $serie["image"] ?>" alt="Serie image">
+                        <img class="bgsupport lazy" data-src="<?php echo $serie["image"] ?>" alt="Serie image">
                         <p><?php echo $serie["SerieTitel"] ?></p>
                     </section>
                 </a>

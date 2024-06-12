@@ -4,7 +4,7 @@ include_once '../php/basicIncludes.php';
 $head = new HeadComponent(
     "Home",
     ["/styles/global.css"],
-    ["/script/slides.js", "/script/custombg.js"]
+    ["/script/slides.js", "/script/custombg.js", "/script/lazyLoad.js"]
 );
 $randInt = rand(1, 500);
 ?>
@@ -17,7 +17,7 @@ $randInt = rand(1, 500);
     <main>
         <div id="blurBg"></div>
         <section>
-            <h2>Todays topper</h2>
+            <h2 class="heading">Todays topper</h2>
             <a href="/pages/serie.php?id=<?php echo $randInt ?>">
                 <?php
                 serieCard($randInt);
@@ -27,8 +27,8 @@ $randInt = rand(1, 500);
 
         <?php
             if (isset($_SESSION["user"])) {
-                $items = getHistory($_SESSION["user"]["KlantNr"]);
-                scrollableList("Latst gekeken" ,$items);
+                $items = getFilteredHistory($_SESSION["user"]["KlantNr"]);
+                scrollableList("Latst gekeken", $items, true);
             }
         ?>
 

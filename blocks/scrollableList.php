@@ -1,5 +1,5 @@
 <?php
-function scrollableList($heading, $items) {
+function scrollableList($heading, $items, $isHistory = false) {
     if (count($items) === 0) {
         return;
     }
@@ -21,7 +21,13 @@ function scrollableList($heading, $items) {
 
     ?>
     <section>
-        <h2><?php echo $heading ?></h2>
+        <?php if ($isHistory) { ?>
+            <a href="/pages/history.php">
+                <h2><?php echo $heading ?></h2>
+            </a>
+        <?php } else { ?>
+            <h2><?php echo $heading ?></h2>
+        <?php } ?>
         <section class="seriesList blueBox">
             <div class="scrollableWrap">
                 <?php
@@ -30,8 +36,8 @@ function scrollableList($heading, $items) {
                     ?>
                     <a href="<?php echo $item["link"] ?>">
                         <div class="scrollableCard">
-                            <img class="scrollableImg bgsupport" src="<?php echo $item["img"] ?>" alt="<?php echo $item["title"] ?>">
-                            <p><?php echo $item["title"] ?></p> 
+                            <img class="scrollableImg bgsupport lazy" data-src="<?php echo $item["img"] ?>" alt="<?php echo $item["title"] ?>">
+                            <p><?php echo isset($item["AflTitel"])?$item["AflTitel"]:$item["title"] ?></p>
 
 
                         </div>
@@ -42,10 +48,10 @@ function scrollableList($heading, $items) {
                 
             </div>
 
-            <button class="leftArrow arrow">
+            <button class="leftArrow arrow button">
                 <p><</p>
             </button>
-            <button class="rightArrow arrow">
+            <button class="rightArrow arrow button">
                 <p>></p>
             </button>
 
