@@ -341,6 +341,11 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+
+    a {
+        width: fit-content;
+        justify-self: center;
+    }
 }
 
 .searchResults img {
@@ -576,7 +581,7 @@ footer{
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     background-color: rgba($color: $blue, $alpha: .25);
 
-    width: fit-content;
+    max-width: fit-content;
 
     font-weight: 600;
     font-size: 1.75rem;
@@ -661,6 +666,80 @@ footer{
 
 /* Responsive */
 
+@media screen and (max-width: $layout-breakpoint-medium) {
+    h1 {
+        font-size: 7vw;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    header {
+        padding: 1.25rem 1vw;
+    }
+    .logo-img-small {
+        display: block;
+    }
+    .logo-img {
+        display: none;
+    }
+    .serieCard {
+        font-size: 3vw;
+
+        .serieInfoTitle {
+            font-size: 5vw;
+        }
+    }
+
+    .serieCard {
+        gap: 1vw;
+        .moreinfoWrap{
+            font-size: 3vw;
+        }
+    }
+
+    main > * {
+        width: 96%;
+    }
+
+    .rating {
+        font-size: 2vw;
+        p.rating-score {
+            font-size: 6vw;
+        }
+    }
+
+    .seriesList {
+        img {
+            width: 150px;
+        }
+    }
+
+    .scrollableCard {
+        width: 150px;
+    }
+
+    .profilePage {
+        font-size: 3.5vw;
+
+        form {
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        input, select, .button {
+            font-size: 3vw;
+        }
+
+        input[type="submit"] {
+            font-size: 5vw;
+        }
+    }
+
+    #kijkgeschiedenis {
+        position: unset;
+    }
+}
+
 @media screen and (max-width: $layout-breakpoint-small) {
     header {
         #searchWrap {
@@ -702,46 +781,6 @@ footer{
             p {
                 font-size: 1.5rem;
             }
-        }
-    }
-}
-
-@media screen and (max-width: $layout-breakpoint-medium) {
-    h2 {
-        font-size: 1.5rem;
-    }
-    header {
-        padding: 1.25rem 1vw;
-    }
-    .logo-img-small {
-        display: block;
-    }
-    .logo-img {
-        display: none;
-    }
-    .serieCard {
-        font-size: 3vw;
-
-        .serieInfoTitle {
-            font-size: 5vw;
-        }
-    }
-
-    .serieCard {
-        gap: 1vw;
-        .moreinfoWrap{
-            font-size: 3vw;
-        }
-    }
-
-    main > * {
-        width: 96%;
-    }
-
-    .rating {
-        font-size: 2vw;
-        p.rating-score {
-            font-size: 6vw;
         }
     }
 }

@@ -20,3 +20,14 @@ function getSerieIdByAflId($aflId) {
     ";
     return fetchSql($query, [$aflId])['SerieID'];
 }
+
+
+function getSerieByID($id) {
+    $query = "SELECT * FROM serie WHERE SerieID = ?;";
+    return fetchSql($query, [$id]);
+}
+
+function getAfleveringByID($id) {
+    $query = "SELECT * FROM aflevering WHERE AfleveringID = ?;";
+    return fetchSql($query, [$id]);
+}

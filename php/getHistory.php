@@ -1,6 +1,19 @@
 <?php
 
 function getFilteredHistory($klantID) {
+    $result = getHistory($klantID);
+
+    $filtered = [];
+    for ($i = 1; $i < count($result); $i++) {
+        if ($result[$i]["AflID"] != $result[$i - 1]["AflID"]) {
+            $filtered[] = $result[$i - 1];
+        }
+    }
+
+    return $filtered;
+}
+
+function getHistory($klantID) {
     $query = "
     SELECT * from stream
     inner join aflevering on stream.aflID = aflevering.AfleveringID
@@ -10,16 +23,7 @@ function getFilteredHistory($klantID) {
     order by StreamID desc
     ;";
 
-    $result = fetchSqlAll($query, [$klantID]);
-
-    $filtered = [];
-    for ($i = 1; $i < count($result); $i++) {
-        if ($result[$i]["SerieID"] != $result[$i - 1]["SerieID"]) {
-            $filtered[] = $result[$i - 1];
-        }
-    }
-
-    return $filtered;
+    return fetchSqlAll($query, [$klantID]);
 }
 
 

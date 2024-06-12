@@ -4,6 +4,10 @@ include_once "../php/klantOnly.php";
 
 $head = new HeadComponent("Profiel", ["/styles/global.css"], []);
 
+if (isset($_GET["reset"])) {
+    session_destroy();
+    header("Location: /");
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "UPDATE klant SET Voornaam = ?, Tussenvoegsel = ?, Achternaam = ?, Genre = ? WHERE KlantNr = ?";

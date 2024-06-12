@@ -8,9 +8,34 @@ $head = new HeadComponent(
     ["/script/slides.js", "/script/aflevering.js", "/script/lazyLoad.js", "/script/custombg.js"]
 );
 
-// TODO: Create a grid of cards with the series that the user has watched
-// TODO: Create a card block
-// TODO: create a function to convert id to img path
+
+
+function calcDuration($items) {
+    $totalSeconds = 0;
+    foreach ($items as $item) {
+        $startSeconds = strtotime($item['d_start']) - strtotime('TODAY');
+        $endSeconds = strtotime($item["d_eind"]) - strtotime('TODAY');
+        
+        $totalSeconds += $endSeconds - $startSeconds;
+    }
+    
+    $hours = floor($totalSeconds / 3600);
+    $minutes = floor(($totalSeconds % 3600) / 60);
+    $seconds = $totalSeconds % 60;
+    
+    $durationString = "";
+
+    if ($hours > 0) {
+        $durationString .= $hours . "h ";
+    }
+    if ($minutes > 0) {
+        $durationString .= $minutes . "m ";
+    }
+    if ($seconds > 0) {
+        $durationString .= $seconds . "s";
+    }
+    return $durationString;
+}
 ?>
 
 
@@ -26,6 +51,39 @@ $head = new HeadComponent(
         <h1>History</h1>
 
         <?php
+        $items = getHistory($_SESSION["user"]["KlantNr"]);
+
+        $todayDate = new DateTime();
+        $todayDate->setTime(0, 0, 0);
+
+        $todayDuration = [];
+        $lastWeekDuration = [];
+        $lastMonthDuration = [];
+        $earlierDuration = [];
+        foreach ($items as $key => $item) {
+            $todayDate = new DateTime();
+            $todayDate->setTime(0, 0, 0);
+
+            $date = new DateTime($item["d_eind"]);
+            $date->setTime(0, 0, 0);
+
+            if ($date == $todayDate) {
+                $todayDuration[] = $item;
+            } else if ($date > $todayDate->sub(new DateInterval("P7D"))) {
+                $lastWeekDuration[] = $item;
+            } else if ($date > $todayDate->sub(new DateInterval("P30D"))) {
+                $lastMonthDuration[] = $item;
+            } else {
+                $earlierDuration[] = $item;
+            }
+        }
+
+        $earlierDuration = calcDuration(array_merge($todayDuration, $lastWeekDuration, $lastMonthDuration, $earlierDuration));
+        $lastMonthDuration = calcDuration(array_merge($todayDuration, $lastWeekDuration, $lastMonthDuration));
+        $lastWeekDuration = calcDuration(array_merge($todayDuration, $lastWeekDuration));
+        $todayDuration = calcDuration($todayDuration);
+
+
         $items = getFilteredHistory($_SESSION["user"]["KlantNr"]);
 
         $today = [];
@@ -33,10 +91,11 @@ $head = new HeadComponent(
         $lastMonth = [];
         $earlier = [];
 
-        $todayDate = new DateTime();
-        $todayDate->setTime(0, 0, 0);
-
         foreach ($items as $key => $item) {
+            $todayDate = new DateTime();
+            $todayDate->setTime(0, 0, 0);
+
+
             $date = new DateTime($item["d_eind"]);
             $date->setTime(0, 0, 0);
 
@@ -51,10 +110,10 @@ $head = new HeadComponent(
             }
         }
 
-        renderHistoryItems("Today", $today);
-        renderHistoryItems("This week", $lastWeek);
-        renderHistoryItems("This month", $lastMonth);
-        renderHistoryItems("Earlier", $earlier);
+        renderHistoryItems("Today: " . $todayDuration, $today);
+        renderHistoryItems("This week: " . $lastWeekDuration, $lastWeek);
+        renderHistoryItems("This month: " . $lastMonthDuration, $lastMonth);
+        renderHistoryItems("Earlier: " . $earlierDuration, $earlier);
 
 
         ?>

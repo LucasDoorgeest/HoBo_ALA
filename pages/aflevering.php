@@ -6,13 +6,16 @@ if (!isset($_GET["id"])) {
     exit();
 }
 
-$head = new HeadComponent("Aflevering", 
-                        ["/styles/global.css"], 
-                        ["/script/slides.js", "/script/aflevering.js", "/script/custombg.js", "/script/lazyLoad.js"]);
-
 $klantID = $_SESSION["user"]["KlantNr"];
 $aflID = $_GET['id'];
 $serieID = getSerieIdByAflId($_GET['id']);
+
+
+$afl = getAfleveringByID($aflID);
+$serie = getSerieByID($serieID);
+$head = new HeadComponent($serie["SerieTitel"] . " - " . $afl["AflTitel"],
+                        ["/styles/global.css"], 
+                        ["/script/slides.js", "/script/aflevering.js", "/script/custombg.js", "/script/lazyLoad.js"]);
 echo "<script>const klantID = $klantID; const aflID = $aflID; const serieID = $serieID;</script>";
 ?>
 

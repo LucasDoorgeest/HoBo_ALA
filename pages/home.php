@@ -17,7 +17,7 @@ $randInt = rand(1, 500);
     <main>
         <div id="blurBg"></div>
         <section>
-            <h2 class="heading">Todays topper</h2>
+            <h2 class="heading">Dit moment topper</h2>  
             <a href="/pages/serie.php?id=<?php echo $randInt ?>">
                 <?php
                 serieCard($randInt);
@@ -28,7 +28,7 @@ $randInt = rand(1, 500);
         <?php
             if (isset($_SESSION["user"])) {
                 $items = getFilteredHistory($_SESSION["user"]["KlantNr"]);
-                scrollableList("Latst gekeken", $items, true);
+                scrollableList("Laatst gekeken", $items, true);
             }
         ?>
 
@@ -46,7 +46,7 @@ $randInt = rand(1, 500);
     ?>
 
         <?php
-            $picks = [14, 15, 16, 17, 18];
+            $picks = [1, 6, 12, 7, 26, 65, 66, 178, 222];
             $cards = [];
 
             foreach ($picks as $key => $item) {
