@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
     lazyImages.forEach(function(lazyImage) {
-        lazyImage.src = "/img/400x600.png";
+        lazyImage.src = "/img/placeholder.png";
     }
     );
   
@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
             lazyImageObserver.unobserve(lazyImage);
           }
         });
+      }, {
+        rootMargin: "1000px"
       });
   
       lazyImages.forEach(function(lazyImage) {
