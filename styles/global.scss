@@ -748,6 +748,32 @@ footer{
         } 
     }
 
+    .registerForm{
+        max-width: 90vw;
+
+        .brand{
+            max-width: 90vw;
+        }
+
+        .form{
+           width: 90vw;
+        }
+
+        form {
+            .passwordform-login{
+                width: auto;
+            }
+            .emailform{
+                width: auto;
+            }
+        }
+    }
+
+    .infologin{
+        max-width: 90vw;
+        height: 50vh;
+    }
+
     .seriesList {
         img {
             width: 100px;

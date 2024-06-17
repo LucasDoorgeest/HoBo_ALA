@@ -42,15 +42,13 @@ $head = new HeadComponent("Login",
             <p>Log in with Google</p>
         </button>
         <form action="" method="post">
-            <article>
+            <article class="emailform">
                 <p>Email</p>
-                <input class="ghost border-info emailform" type="email" name="email" placeholder="example@example.com">
+                <input class="ghost border-info" type="email" name="email" placeholder="example@example.com">
             </article>
             <article class="passwordform-login">
-                <article>
-                    <p>Password</p>
-                    <input class="ghost border-info" type="password" name="password" placeholder="Your password">
-                </article>
+                <p>Password</p>
+                <input class="ghost border-info" type="password" name="password" placeholder="Your password">
             </article>
             <input class="submitbutton" type="submit" value="Login">
             <article>
