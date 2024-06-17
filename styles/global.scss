@@ -463,6 +463,11 @@ a {
             background-color: #3e43fb;
             color: #fff;
             width: calc(40vw - 2rem);
+
+            &:hover {
+                background-color: #21259f;
+                cursor: pointer;
+            }
         }
 
         button {
