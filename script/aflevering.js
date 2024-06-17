@@ -11,6 +11,7 @@ function sendWatching() {
 
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof klantID !== 'undefined') {
+        sendWatching();
         setInterval(
             sendWatching, 5000
         )
