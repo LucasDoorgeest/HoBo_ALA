@@ -26,7 +26,7 @@ if ($stream) {
 } else {
     $query = "
     INSERT INTO stream (klantID, AflID, d_start, d_eind)
-    VALUES (?, ?, NOW(), NOW());
+    VALUES (?, ?, NOW() - INTERVAL 5 SECOND, NOW());
     ";
     runSql($query, [$klantID, $aflID]);
 }

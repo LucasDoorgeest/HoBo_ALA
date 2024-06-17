@@ -13,8 +13,8 @@ $head = new HeadComponent(
 function calcDuration($items) {
     $totalSeconds = 0;
     foreach ($items as $item) {
-        $startSeconds = strtotime($item['d_start']) - strtotime('TODAY');
-        $endSeconds = strtotime($item["d_eind"]) - strtotime('TODAY');
+        $startSeconds = strtotime($item['d_start']);
+        $endSeconds = strtotime($item["d_eind"]);
         
         $totalSeconds += $endSeconds - $startSeconds;
     }
@@ -34,6 +34,7 @@ function calcDuration($items) {
     if ($seconds > 0) {
         $durationString .= $seconds . "s";
     }
+
     return $durationString;
 }
 ?>
