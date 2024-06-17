@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
     lazyImages.forEach(function(lazyImage) {
-        lazyImage.src = "/img/placeholder.png";
+        lazyImage.src = "/img/placeholder.svg";
     }
     );
   

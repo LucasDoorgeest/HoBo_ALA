@@ -4,7 +4,7 @@ function getImgPathBySerieId($serieId) {
     $len = strlen((string)$serieId);
     $imgpath = str_repeat("0", 5 - $len) . $serieId . ".jpg";
     if (!file_exists("../img/series/images/" . $imgpath)) {
-        $imgpath = "placeholder.png";
+        $imgpath = "placeholder.svg";
     }
 
     return "/img/series/images/" . $imgpath;
