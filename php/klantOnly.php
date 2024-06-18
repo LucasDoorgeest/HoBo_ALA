@@ -1,6 +1,5 @@
 <?php
 if (!isset($_SESSION["user"])) {
-    header("Location: /pages/register.php");
+    header("Location: /pages/login.php");
     exit();
 }
-?>
