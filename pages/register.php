@@ -68,7 +68,7 @@ $head = new HeadComponent("Register",
             <article>
                 <input class="checkbox-terms" name="cb" type="checkbox">
                 <label>I have read and accept</label>
-                <a class="hover" href="#">terms &amp; conditions</a>
+                <a class="hover" href="privacy.php">terms &amp; conditions</a>
             </article>
             <input class="submitbutton" type="submit" value="Register">
             <article>

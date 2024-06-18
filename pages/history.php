@@ -8,6 +8,12 @@ $head = new HeadComponent(
     ["/script/slides.js", "/script/aflevering.js", "/script/lazyLoad.js", "/script/custombg.js"]
 );
 
+if (isset($_GET["clearHistory"])) {
+    execSql("DELETE FROM stream WHERE KlantID = ?", [$_SESSION["user"]["KlantNr"]]);
+
+    header("Location: /pages/history.php");
+}
+
 function calcDuration($items) {
     $totalSeconds = 0;
     foreach ($items as $item) {
@@ -107,6 +113,14 @@ function calcDuration($items) {
         renderHistoryItems("This week: " . $lastWeekDuration, $lastWeek);
         renderHistoryItems("This month: " . $lastMonthDuration, $lastMonth);
         renderHistoryItems("Earlier: " . $earlierDuration, $earlier);
+
+        if (empty($items)) {
+            echo "<p>No history found</p>";
+        } else { ?>
+            <form action="">
+            <input name="clearHistory" class="button buttonred" type="submit" value="Clear history">
+            </form>
+        <?php }
         ?>
     </main>
     <?php FooterComponent::render(); ?>

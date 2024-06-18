@@ -15,7 +15,12 @@ $serie = getSerieByID($serieID);
 $head = new HeadComponent($serie["SerieTitel"] . " - " . $afl["AflTitel"],
                         ["/styles/global.css"], 
                         ["/script/slides.js", "/script/aflevering.js", "/script/custombg.js", "/script/lazyLoad.js"]);
-echo "<script>const klantID = $klantID; const aflID = $aflID; const serieID = $serieID;</script>";
+
+$kijkGeschiedenisOpslaan = isset($_SESSION["user"]["Geschiedenis"]) ? $_SESSION["user"]["Geschiedenis"] : 0;
+
+
+echo "<script>const klantID = $klantID; const aflID = $aflID; const serieID = $serieID; const kijkGeschiedenis = $kijkGeschiedenisOpslaan;</script>";
+
 ?>
 
 <!DOCTYPE html>

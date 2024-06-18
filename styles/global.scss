@@ -104,6 +104,7 @@ header nav {
 .serieInfoTitle {
     font-family: "neutra_textbold_alt";
     font-size: 2.5rem;
+    max-width: 70%;
 }
 
 /* Background styling */
@@ -154,6 +155,11 @@ h2 {
     border-radius: 0.5rem;
     padding: 0.5rem;
 }
+
+.fit-content {
+    width: fit-content;
+}
+
 
 img {
     border-radius: 0.5rem;
@@ -221,6 +227,7 @@ img {
 .serieCard > a{
     display: flex;
     gap: 1rem;
+    width: 100%;
 }
 
 .serieCard {
@@ -251,6 +258,7 @@ img {
         .title {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
         .undertitleinfoWrap{
             display: flex;
@@ -669,32 +677,70 @@ footer{
         }
     }
 
-    input, select, .button {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        border: 1px solid $ghost;
-        transition: all 0.3s ease;
-        box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
-        font-size: 1.5rem;
-
-        &:focus {
-            outline: none;
-            border: 1px solid $blue;
-        }
-    }
-
     input[type="submit"] {
         font-size: 2rem;
         border-radius: 1.5rem;
     }
 }
 
-#reset{
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+form {
+    font-size: 1.5rem;
+    input, select, .button {
+        margin: 0.25rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid $ghost;
+        transition: all 0.3s ease;
+        box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
+        font-size: 1.5rem;
+    
+        &:focus {
+            outline: none;
+            border: 1px solid $blue;
+        }
+    }
+
+    input[type="checkbox"] {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+form > .afleveringenEdit {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label.center {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    max-width: 40vw;
+
+    p {
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            color: $red;
+        }
+    }
+}
+
+#reset{
+    margin: 1.5rem auto 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .center {
@@ -762,6 +808,10 @@ footer{
     }
 }
 
+.privacy {
+    max-width: 1000px;
+}
+
 .genresSelect, .seizoenenSelect {
 
     input {
@@ -800,6 +850,9 @@ footer{
 /* Responsive */
 
 @media screen and (max-width: $layout-breakpoint-medium) {
+    form {
+        font-size: unset;
+    }
     h1 {
         font-size: 7vw;
     }
@@ -886,11 +939,11 @@ footer{
     }
 
     .profilePage {
-        font-size: 3.5vw;
+        font-size: 3.5vw !important;
 
         form {
-            gap: 1rem;
-            padding: 1rem;
+            gap: 2vw;
+            padding: 2vw;
         }
 
         input, select, .button {

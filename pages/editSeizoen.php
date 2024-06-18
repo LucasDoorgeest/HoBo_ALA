@@ -45,16 +45,18 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
                     <section class="afleveringEdit">
                         <input type="hidden" name="afleveringID[]" value="<?php echo $aflevering["AfleveringID"] ?>">
                         <input class="d-none removeCheckbox" type="hiden" name="delete[]" id="delete-<?php echo $aflevering["AfleveringID"] ?>" value="0">
-                        <table class="maxWidth">
+                        <table class="maxWidth borders">
                             <tr>
                                 <td><label for="AflTitel">AflTitel</label></td>
                                 <td><input type="text" name="AflTitel[]" value="<?php echo $aflevering["AflTitel"] ?>"></td>
                             </tr>
                             <tr>
                                 <td><label for="Duur">Duur</label></td>
-                                <td>
+                                <td class="flex">
                                     <input type="number" name="Duur[]" value="<?php echo $aflevering["Duur"] ?>">
-                                    <label for="delete-<?php echo $aflevering["AfleveringID"] ?>">Verwijderen</label>
+                                    <label class="center" for="delete-<?php echo $aflevering["AfleveringID"] ?>">
+                                        <p>Verwijderen</p>
+                                    </label>
                                 </td>
                             </tr>
                         </table>

@@ -9,7 +9,7 @@ function sendWatching() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof klantID !== 'undefined') {
+    if (typeof klantID !== 'undefined' && kijkGeschiedenis == 1) {
         sendWatching();
         setInterval(
             sendWatching, 5000
