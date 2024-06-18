@@ -5,7 +5,7 @@ let lastImg = null;
 function resetCooldown() {
     cooldown = false;
 
-    if (lastImg && bg.style.backgroundImage !== `url(${lastImg.src})`) {
+    if (lastImg && bg.style.backgroundImage != `url("${lastImg.src}")`) {
         bg.style.backgroundImage = `url(${lastImg.src})`;
 
         cooldown = true;
