@@ -214,16 +214,17 @@ img {
     flex-direction: column;
 }
 
+.serieCard > a{
+    display: flex;
+    gap: 1rem;
+}
+
 .serieCard {
     .moreinfoWrap {
         display: flex;
         flex-direction: column;
         font-weight: 500;
         font-size: 18px;
-    }
-    a{
-        display: flex;
-        gap: 1rem;
     }
 
     .serieImg {

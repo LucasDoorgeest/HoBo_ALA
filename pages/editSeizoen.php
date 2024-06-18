@@ -64,7 +64,7 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
                 ?>
             </section>
             <input name="submit" class="button" type="submit" value="Opslaan">
-            <input name="submit" class="button" type="submit" value="Seizoen verwijderen">
+            <input name="submit" class="button buttonred" type="submit" value="Seizoen verwijderen">
         </form>
         <form action="../php/addAfl.php">
             <input type="hidden" name="SeizoenID" value="<?php echo $seizoen["SeizoenID"] ?>">
