@@ -1,15 +1,12 @@
 <?php
 include_once "../php/basicIncludes.php";
+include_once "../php/adminOnly.php";
 
 $head = new HeadComponent(
     "Beheer",
     ["/styles/global.css"],
     []
 );
-
-if (!isset($_SESSION["user"]) || $_SESSION["user"]["isAdmin"] != 1) {
-    header("Location: /");
-}
 
 $series = fetchSqlAll("SELECT * FROM serie", []);
 

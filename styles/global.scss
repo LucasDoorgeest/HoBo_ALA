@@ -671,7 +671,7 @@ footer{
 
 .addNewSerie {
     position: fixed;
-    left: 25px;
+    right: 25px;
     top: 100px;
 }
 
@@ -718,6 +718,11 @@ footer{
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 
+
+}
+
+.highlight {
+    background-color: rgba($color: red, $alpha: .25) !important;
 
 }
 

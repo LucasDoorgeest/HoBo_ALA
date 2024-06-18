@@ -1,16 +1,13 @@
 <?php
 include_once "../php/basicIncludes.php";
 include_once "../php/seizoenEdit.php";
+include_once "../php/adminOnly.php";
 
 $head = new HeadComponent(
     "Edit seizoen",
     ["/styles/global.css"],
-    []
+    ["/script/removeAfl.js"]
 );
-
-if (!isset($_SESSION["user"]) || $_SESSION["user"]["isAdmin"] != 1) {
-    header("Location: /");
-}
 
 if (isset($_GET["submit"])) {
     handleSeizoenEditRequest($_GET);
@@ -49,7 +46,7 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
                     ?>
                     <section class="afleveringEdit">
                         <input type="hidden" name="afleveringID[]" value="<?php echo $aflevering["AfleveringID"] ?>">
-                        <input class="d-none" type="checkbox" name="delete[]" id="delete-<?php echo $aflevering["AfleveringID"] ?>">
+                        <input class="d-none removeCheckbox" type="hiden" name="delete[]" id="delete-<?php echo $aflevering["AfleveringID"] ?>" value="0">
                         <table class="maxWidth">
                             <tr>
                                 <td><label for="AflTitel">AflTitel</label></td>
@@ -69,8 +66,11 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
                 ?>
             </section>
             <input name="submit" class="button" type="submit" value="Opslaan">
+            <input name="submit" class="button" type="submit" value="Seizoen verwijderen">
         </form>
         <form action="../php/addAfl.php">
+            <input type="hidden" name="SeizoenID" value="<?php echo $seizoen["SeizoenID"] ?>">
+            <input type="hidden" name="Rang" value="<?php echo count($afleveringen) + 1 ?>">
             <section>
                 <h2>Aflevering toevoegen</h2>
                 <table class="maxWidth">
