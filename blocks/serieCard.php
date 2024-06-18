@@ -56,7 +56,8 @@ function serieCard($id) {
         "genre" => $genre,
         "rating" => round($rating, 2),
         "image" => getImgPathBySerieId($id),
-        "active" => $serie["Actief"]? "Yes" : "No"
+        "active" => $serie["Actief"]? "Yes" : "No",
+        "IMDBLink" => $serie["IMDBLink"]
     ];
 
     // print_r($serieInfo);
@@ -114,9 +115,12 @@ function serieCard($id) {
 
 
     <section class="rating">
-        <p>IMDb Rating:</p>
-        <p class="rating-score"><?php echo $serieInfo["rating"]; ?></p>
+        <a href="<?php echo $serieInfo["IMDBLink"]; ?>">
+            <p>IMDb Rating:</p>
+            <p class="rating-score"><?php echo $serieInfo["rating"]; ?></p>
+        </a>
     </section>
+
     </article>
     <?php
 }

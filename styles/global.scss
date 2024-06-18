@@ -675,7 +675,7 @@ footer{
     top: 100px;
 }
 
-.serieBeheer {
+.serieBeheer, .klantenBeheer {
     font-size: 1.5rem;
 
     tr {
@@ -686,6 +686,11 @@ footer{
         border-bottom: 1px solid $ghost;
     }
 }
+
+.klantenBeheer tr {
+    grid-template-columns: 100px 1fr 150px 75px;
+}
+
 
 .maxWidth {
     width: 100%;
