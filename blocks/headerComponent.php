@@ -18,7 +18,7 @@ class HeaderComponent {
                         <figcaption class="d-none">Search icon</figcaption>
                     </button>
                 </section>
-                <?php if (isset($_SESSION["user"]) && isset($_SESSION["user"]["isAdmin"]) && $_SESSION["user"]["isAdmin"] == 1) { ?>
+                <?php if (isset($_SESSION["user"]) && ($_SESSION["user"]["AboID"] == 4)) { ?>
                     <section>
                         <figure id="beheer">
                             <a href="/pages/beheer.php">
