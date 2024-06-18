@@ -20,6 +20,16 @@ class HeaderComponent {
                         <figcaption class="d-none">Search icon</figcaption>
                     </button>
                 </section>
+                <?php if (isset($_SESSION["user"]) && isset($_SESSION["user"]["isAdmin"]) && $_SESSION["user"]["isAdmin"] == 1) { ?>
+                    <section>
+                        <figure id="beheer">
+                            <a href="/pages/beheer.php">
+                                <img src="/img/settings_icon.svg" alt="History">
+                                <figcaption class="d-none">Beheer icon</figcaption>
+                            </a>
+                        </figure>
+                    </section>
+                <?php } ?>
                 <section>
                     <figure id="profile">
                         <a href="/pages/profile.php">

@@ -664,6 +664,58 @@ footer{
     }
 }
 
+.addNewSerie {
+    position: fixed;
+    left: 25px;
+    top: 100px;
+}
+
+.serieBeheer {
+    font-size: 1.5rem;
+
+    tr {
+        display: grid;
+        grid-template-columns: 50px 1fr 75px;
+        gap: 1rem;
+        padding: 0.75rem;
+        border-bottom: 1px solid $ghost;
+    }
+}
+
+.maxWidth {
+    width: 100%;
+
+    input {
+        width: 100%;
+    }
+}
+
+.genresSelect, .seizoenenSelect {
+
+    input {
+        display: none;
+
+        &:checked + label {
+            background-color: rgba($color: $blue, $alpha: .5) !important;
+        }
+    }
+
+    label, a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid $ghost;
+        margin: 0.5rem;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+
+}
+
 /* Responsive */
 
 @media screen and (max-width: $layout-breakpoint-medium) {

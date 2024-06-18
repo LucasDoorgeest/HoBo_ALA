@@ -38,10 +38,6 @@ function afleveringCard($id) {
             <p>Duur: <?php echo $aflevering["Duur"] ?> m</p>
         </section>
 
-        <section class="rating">
-        <p>IMDb Rating:</p>
-        <p class="rating-score"><?php echo $aflevering["Rang"] ?></p>
-    </section>
     
     </section>
 
