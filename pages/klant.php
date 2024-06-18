@@ -25,12 +25,14 @@ $genres = fetchSqlAll("SELECT * FROM genre", []);
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
+
 <body>
     <?php HeaderComponent::render(); ?>
     <main>
         <h1>Klant</h1>
 
-        <form action="">
+        <section class="formWrap">
+        <form>
             <input type="hidden" name="id" value="<?php echo $klant["KlantNr"] ?>">
             <table class="maxWidth">
 
@@ -52,13 +54,13 @@ $genres = fetchSqlAll("SELECT * FROM genre", []);
                         <select name="Genre" id="Genre">
                             <?php
                             foreach ($genres as $genre) {
-                                ?>
+                            ?>
                                 <option value="<?php echo $genre["GenreID"] ?>" <?php echo $klant["Genre"] == $genre["GenreID"] ? "selected" : "" ?>><?php echo $genre["GenreNaam"] ?></option>
-                                <?php
+                            <?php
                             }
                             ?>
                         </select>
-                
+
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +69,11 @@ $genres = fetchSqlAll("SELECT * FROM genre", []);
                 </tr>
             </table>
             <input class="button" type="submit" name="submit" value="Submit">
+        </form>
+
+        </section>
     </main>
     <?php FooterComponent::render(); ?>
 </body>
-</html> 
+
+</html>

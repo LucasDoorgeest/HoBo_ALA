@@ -651,10 +651,13 @@ footer{
     }
 }
 
-.addNewSerie {
+.toolbox {
     position: fixed;
-    right: 25px;
-    top: 100px;
+    right: 50px;
+    top: 150px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .serieBeheer, .klantenBeheer {

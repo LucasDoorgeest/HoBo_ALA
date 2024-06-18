@@ -14,32 +14,37 @@ $series = fetchSqlAll("SELECT * FROM serie", []);
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
+
 <body>
     <?php HeaderComponent::render(); ?>
     <main>
         <h1>Beheer</h1>
         <section>
-        <a class="button addNewSerie" href="/pages/addSerie.php">Add new serie</a>
-        <table class="serieBeheer">
-            <tr>
-                <th>SerieID</th>
-                <th>SerieTitel</th>
-                <th>Bewerken</th>
-            </tr>
-            <?php
+            <section class="toolbox">
+                <a class="button addNewSerie" href="/pages/addSerie.php">Add new serie</a>
+                <a class="button klanten" href="/pages/klanten.php">Klanten</a>
+            </section>
+            <table class="serieBeheer">
+                <tr>
+                    <th>SerieID</th>
+                    <th>SerieTitel</th>
+                    <th>Bewerken</th>
+                </tr>
+                <?php
                 foreach ($series as $serie) {
-                   ?>
+                ?>
                     <tr>
                         <td><?php echo $serie["SerieID"] ?></td>
                         <td><?php echo $serie["SerieTitel"] ?></td>
                         <td><a class="button" href="/pages/editSerie.php?id=<?php echo $serie["SerieID"] ?>">Edit</a></td>
                     </tr>
-                    <?php
+                <?php
                 }
-            ?>
-        </table>    
+                ?>
+            </table>
         </section>
     </main>
     <?php FooterComponent::render(); ?>
 </body>
+
 </html>
