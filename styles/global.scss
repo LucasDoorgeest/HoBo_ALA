@@ -476,7 +476,6 @@ select#seizoen {
     .brand{
         display: flex;
         flex-direction: row;
-        justify-content: center;
         gap: 1rem;
         background-color: white;
         border: 1px solid $ghost;
@@ -858,7 +857,10 @@ footer{
         max-width: 70vw;
 
         .brand{
-            max-width: 70vw;
+            min-width: 35vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         form{
@@ -903,6 +905,7 @@ footer{
 
         .brand{
             max-width: 90vw;
+            align-items: center;
         }
 
         .form{
