@@ -40,7 +40,7 @@ if (isset($_GET["submit"])) {
         <h1>Serie toevoegen</h1>
         <p><a href="./beheer.php" class="button">Terug naar overzich</a></p>
 
-        <form action="">
+        <form class="form">
             <table class="maxWidth">
 
                 <tr>
