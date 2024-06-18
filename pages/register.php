@@ -10,8 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<script>alert('Wachtwoord moet minimaal 8 tekens bevatten');</script>";
     } else if ($password !== $passwordRepeat) {
         echo "<script>alert('Wachtwoorden komen niet overeen');</script>";
-    } else if (!isset($_POST['cb'])) {
-        echo "<script>alert('Accepteer de voorwaarden');</script>";
     } else {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
