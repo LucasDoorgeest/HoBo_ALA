@@ -3,6 +3,10 @@ include_once "../php/tools.php";
 
 function serieCard($id) {
     $serie = fetchSql("select * from serie where serie.SerieID = ?;", [$id]);
+
+    if ($serie == null) {
+        header("Location: /pages/search.php");
+    }
     $genre = fetchSqlAll("select GenreNaam from serie_genre 
                         join genre on serie_genre.GenreID = genre.GenreID 
                         where serie_genre.SerieID = ?;", [$id]);
@@ -107,6 +111,9 @@ function serieCard($id) {
                 <td><?php echo $serieInfo["active"]; ?></td>
             </tr>
         </table>
+        <p>
+        Deze serie volgt diverse personages die persoonlijke en professionele uitdagingen aangaan. Intrigerende plotwendingen en complexe relaties onthullen hun ontwikkelingen en keuzes. Geschikt voor een breed publiek.
+        </p>
     </section>
     <section class="rating">
         <a href="<?php echo $serieInfo["IMDBLink"]; ?>">

@@ -212,6 +212,9 @@ img {
     flex: 1;
     gap: 2rem;
     flex-direction: column;
+    p {
+        max-width: 40vw;
+    }
 }
 
 .serieCard > a{
@@ -825,6 +828,10 @@ footer{
         gap: 1vw;
         .moreinfoWrap{
             font-size: 3vw;
+        }
+
+        .cardHeading {
+            gap: 1vw;
         }
     }
 
