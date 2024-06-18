@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="fit-content">
 
             <section class="profilePage gap">
-            <form action="profile.php" method="post">
+            <form class="form" action="profile.php" method="post">
                 <table>
                     <tr>
                         <td><label for="Voornaam">Voornaam</label></td>

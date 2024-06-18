@@ -34,10 +34,7 @@ function afleveringCard($id) {
         </section>
     </section>
     <section class="fakePlayer">
-        <video controls>
-            <source src="/videos/aflevering.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <iframe src="https://www.youtube.com/embed/HhesaQXLuRY?si=GssEreL8OdUznGSr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <section class="afleveringen">
             <select name="seizoen" id="seizoen">
                 <?php
@@ -52,7 +49,7 @@ function afleveringCard($id) {
                     <section class="afleveringenWrap <?php echo $key == $selectedSeason ? "" : "d-none"; ?>">
                     <?php
                         foreach($season as $aflevering) {
-                            echo "<a href='/pages/aflevering.php?id=" . $aflevering["AfleveringID"] . "'>Aflevering " . $aflevering["AflTitel"] . "</a>";
+                            echo "<a href='/pages/aflevering.php?id=" . $aflevering["AfleveringID"] . "'>" . $aflevering["AflTitel"] . "</a>";
                         }
                     ?>
                     </section>

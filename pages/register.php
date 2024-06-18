@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<script>alert('Wachtwoord moet minimaal 8 tekens bevatten');</script>";
     } else if ($password !== $passwordRepeat) {
         echo "<script>alert('Wachtwoorden komen niet overeen');</script>";
+    } else if (!isset($_POST['cb'])) {
+        echo "<script>alert('Accepteer de voorwaarden');</script>";
     } else {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -66,7 +68,7 @@ $head = new HeadComponent("Register",
                 </article>
             </article>
             <article>
-                <input class="checkbox-terms" name="cb" type="checkbox">
+                <input class="checkbox-terms" name="privacy" type="checkbox" reaquried>
                 <label>I have read and accept</label>
                 <a class="hover" href="privacy.php">terms &amp; conditions</a>
             </article>

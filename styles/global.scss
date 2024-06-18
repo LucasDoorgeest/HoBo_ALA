@@ -413,14 +413,14 @@ a {
 .fakePlayer {
     display: flex;
     height: calc(1000px * 9 / 16);
-    background-color: black;
+    background-color: rgba($color: black, $alpha: .8);
     position: relative;
 
     margin-bottom: 300px;
     margin-top: 20px;
 }
 
-.fakePlayer video {
+.fakePlayer iframe {
     height: 100%;
     width: calc(100% - 300px);
 }
@@ -451,16 +451,10 @@ select#seizoen {
     padding: 5px;
     background-color: #333;
     text-align: center;
-}
 
-.fakePlayer::before {
-    content: "Aflevering";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2em;
+    &:hover {
+        background-color: #555;
+    }
 }
 
 /* Register / Login */
@@ -688,7 +682,7 @@ footer{
     gap: 1rem;
 }
 
-form {
+form.form {
     font-size: 1.5rem;
     input, select, .button {
         margin: 0.25rem;

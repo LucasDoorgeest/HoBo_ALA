@@ -29,7 +29,7 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
         <h1>Edit Seizoen</h1>
         <p><a href="./editSerie.php?id=<?php echo $seizoen["SerieID"] ?>" class="button">Terug naar serie</a></p>
         <h2><?php echo $serie["SerieTitel"] ?> - Seizoen <?php echo $seizoen["Rang"] ?></h2>
-        <form action="">
+        <form class="form">
             <input type="hidden" name="id" value="<?php echo $seizoen["SeizoenID"] ?>">
             <table class="maxWidth">
                 <tr>
@@ -68,7 +68,7 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
             <input name="submit" class="button" type="submit" value="Opslaan">
             <input name="submit" class="button buttonred" type="submit" value="Seizoen verwijderen">
         </form>
-        <form action="../php/addAfl.php">
+        <form action="../php/addAfl.php" class="form">
             <input type="hidden" name="SeizoenID" value="<?php echo $seizoen["SeizoenID"] ?>">
             <input type="hidden" name="Rang" value="<?php echo count($afleveringen) + 1 ?>">
             <section>
