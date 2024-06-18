@@ -11722,7 +11722,6 @@ COMMIT;
 insert into abonnement (AboNaam, MaxDevices, StreamKwaliteit) values ("Admin", 999, 50);
 ALTER TABLE klant
 ADD COLUMN Geschiedenis BOOLEAN DEFAULT true;
-update klant set AboID = 4 where email = "heboba@heboba.site";
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
