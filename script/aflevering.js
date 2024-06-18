@@ -15,4 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
             sendWatching, 5000
         )
     }
+
+    const seizoen = document.getElementById("seizoen");
+        const afleveringen = document.querySelectorAll(".afleveringenWrap");
+
+        seizoen.addEventListener("change", () => {
+            afleveringen.forEach((aflevering) => {
+                aflevering.classList.add("d-none");
+            });
+
+            afleveringen[seizoen.selectedIndex].classList.remove("d-none");
+        });
 });

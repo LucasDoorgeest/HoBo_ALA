@@ -97,3 +97,4 @@ $serieGenres = array_map(function ($serieGenres) {
     </main>
     <?php FooterComponent::render(); ?>
 </body>
+</html>
