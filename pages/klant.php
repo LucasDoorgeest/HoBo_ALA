@@ -30,7 +30,7 @@ $genres = fetchSqlAll("SELECT * FROM genre", []);
     <?php HeaderComponent::render(); ?>
     <main>
         <h1>Klant</h1>
-
+        <p><a href="./klanten.php" class="button">Terug naar klanten</a></p>
         <section class="formWrap">
         <form>
             <input type="hidden" name="id" value="<?php echo $klant["KlantNr"] ?>">
