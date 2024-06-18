@@ -1,5 +1,4 @@
 <?php
-
 function getImgPathBySerieId($serieId) {
     $len = strlen((string)$serieId);
     $imgpath = str_repeat("0", 5 - $len) . $serieId . ".jpg";
@@ -21,7 +20,6 @@ function getSerieIdByAflId($aflId) {
     return fetchSql($query, [$aflId])['SerieID'];
 }
 
-
 function getSerieByID($id) {
     $query = "SELECT * FROM serie WHERE SerieID = ?;";
     return fetchSql($query, [$id]);
@@ -31,3 +29,4 @@ function getAfleveringByID($id) {
     $query = "SELECT * FROM aflevering WHERE AfleveringID = ?;";
     return fetchSql($query, [$id]);
 }
+?>

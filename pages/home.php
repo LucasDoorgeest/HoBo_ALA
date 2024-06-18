@@ -24,14 +24,12 @@ $randInt = rand(1, 500);
                 ?>
             </a>
         </section>
-
         <?php
             if (isset($_SESSION["user"])) {
                 $items = getFilteredHistory($_SESSION["user"]["KlantNr"]);
                 scrollableList("Laatst gekeken", $items, true);
             }
         ?>
-
     <?php
         if (isset($_SESSION["user"])){
             $query = "
@@ -44,7 +42,6 @@ $randInt = rand(1, 500);
             scrollableList("Je favoriete genre toppers", $items);
         }
     ?>
-
         <?php
             $picks = [1, 6, 12, 7, 26, 65, 66, 178, 222];
             $cards = [];
@@ -53,9 +50,7 @@ $randInt = rand(1, 500);
                 $query = "select * from serie where SerieID = ?;";
                 $cards[] = fetchSql($query, [$item]);
             }
-
             scrollableList("Editor picks", $cards);
-
         ?>
     </main>
     <?php FooterComponent::render(); ?>

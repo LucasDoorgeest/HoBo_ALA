@@ -1,5 +1,4 @@
 <?php
-
 function getFilteredHistory($klantID) {
     $result = getHistory($klantID);
 
@@ -9,7 +8,6 @@ function getFilteredHistory($klantID) {
             $filtered[] = $result[$i - 1];
         }
     }
-
     return $filtered;
 }
 
@@ -26,13 +24,11 @@ function getHistory($klantID) {
     return fetchSqlAll($query, [$klantID]);
 }
 
-
 function renderHistoryItems($heading, $items) {
     if (count($items) == 0) {
         return;
     }
     ?>
-
     <section>
         <h2><?php echo $heading ?></h2>
         <section class="searchResults">
@@ -47,9 +43,9 @@ function renderHistoryItems($heading, $items) {
                 </a>
                     <?php
                 }
-
                 ?>
         </section>
     </section>
     <?php
 }
+?>

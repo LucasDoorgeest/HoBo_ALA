@@ -1,5 +1,4 @@
 <?php
-
 function runSql($sql, $params = [], $returnLastInsertedId = false) {
     global $conn;
     $stmt = $conn->prepare($sql);
@@ -8,7 +7,6 @@ function runSql($sql, $params = [], $returnLastInsertedId = false) {
     if ($returnLastInsertedId) {
         return $conn->lastInsertId();
     }
-
     return $stmt;
 }
 
@@ -23,3 +21,4 @@ function fetchSql($sql, $params = []) {
 function fetchSqlAll($sql, $params = []) {
     return runSql($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
 }
+?>

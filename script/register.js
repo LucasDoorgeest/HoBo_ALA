@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = form.querySelector('input[name="email"]').value;
         const passwordRepeat = form.querySelector('input[name="passwordRepeat"]').value;
 
-
         if (password.length < 8) {
             e.preventDefault();
             alert('Password must be at least 8 characters long');
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Passwords do not match');
             return false;
         }
-
         return true;
     });
 });

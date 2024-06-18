@@ -15,9 +15,10 @@ function handleSeizoenEditRequest($GET) {
         $query = "UPDATE aflevering SET AflTitel = ?, Duur = ? WHERE AfleveringID = ?";
         runSql($query, [$aflevering["AflTitel"], $aflevering["Duur"], $aflevering["AfleveringID"]]);
     }
-
+    
     $query = "UPDATE seizoen SET IMDBRating = ? WHERE SeizoenID = ?";
     runSql($query, [$IMDBRating, $id]);
 
     header("Location: editSeizoen.php?id=$id");
 }
+?>

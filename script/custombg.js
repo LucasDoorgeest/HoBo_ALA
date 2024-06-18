@@ -1,4 +1,3 @@
-
 let bg = null;
 let cooldown = false;
 let lastImg = null;
@@ -23,8 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const serieInfoImg = document.querySelector(".serieInfoImg");
     if (serieInfoImg) bg.style.backgroundImage = `url(${serieInfoImg.src})`;
 
-
-
     document.querySelectorAll("img.bgsupport").forEach(function(img) {
         img.addEventListener("mouseover", function() {
             const src = `url(${img.src})`;
@@ -40,5 +37,4 @@ document.addEventListener('DOMContentLoaded', function() {
             lastImg = img;
         });
     });
-
 });

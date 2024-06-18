@@ -1,4 +1,3 @@
-
 function sendWatching() {
     fetch('/php/iAmWatching.php', {
         method: 'POST',

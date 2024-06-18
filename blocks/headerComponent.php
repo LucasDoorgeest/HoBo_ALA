@@ -1,6 +1,4 @@
 <?php
-
-
 class HeaderComponent {
     static public function render() {
         ?>
@@ -40,7 +38,6 @@ class HeaderComponent {
                 </section>
             </nav>
         </header>
-
         <script>
             function search() {
                 const search = document.getElementById("searchText").value;
@@ -52,7 +49,6 @@ class HeaderComponent {
                     window.location.href = `/pages/search.php?q=${search}`;
                 }
             }
-
             document.getElementById("search").addEventListener("click", search);
             document.getElementById("searchText").addEventListener("keyup", (e) => {
                 if (e.key === "Enter") {
@@ -60,11 +56,6 @@ class HeaderComponent {
                 }
             });     
         </script>
-
-
-
-
         <?php
     }
-
 }

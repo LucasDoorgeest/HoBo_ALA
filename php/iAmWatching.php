@@ -30,5 +30,5 @@ if ($stream) {
     ";
     runSql($query, [$klantID, $aflID]);
 }
-
 echo json_encode($stream);
+?>

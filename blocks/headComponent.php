@@ -1,5 +1,4 @@
 <?php
-
 class HeadComponent {
     private $title;
     private $description;
@@ -12,7 +11,6 @@ class HeadComponent {
         $this->styles = $styles;
         $this->scripts = $scripts;
     }
-
     public function render() {
         ?>
         <head>
@@ -46,5 +44,4 @@ class HeadComponent {
         </head>
         <?php
     }
-
 }

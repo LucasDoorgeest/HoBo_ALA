@@ -21,7 +21,6 @@ if (isset($_GET["submit"])) {
 $seizoen = fetchSql("SELECT * FROM seizoen WHERE SeizoenID = ?", [$_GET["id"]]);
 $serie = fetchSql("SELECT * FROM serie WHERE SerieID = ?", [$seizoen["SerieID"]]);
 $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET["id"]]);
-
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +32,6 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
         <h1>Edit Seizoen</h1>
         <p><a href="./editSerie.php?id=<?php echo $seizoen["SerieID"] ?>" class="button">Terug naar serie</a></p>
         <h2><?php echo $serie["SerieTitel"] ?> - Seizoen <?php echo $seizoen["Rang"] ?></h2>
-
         <form action="">
             <input type="hidden" name="id" value="<?php echo $seizoen["SeizoenID"] ?>">
             <table class="maxWidth">

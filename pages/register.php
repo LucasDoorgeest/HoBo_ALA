@@ -1,7 +1,6 @@
 <?php
 include_once "../php/basicIncludes.php";
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -77,11 +76,8 @@ $head = new HeadComponent("Register",
         </form>
     </section>
     <article class="infologin">
-        <h1>Hobo</h1>
-        <article>
-            <h1>Start your journey through our expansive library</h1>
-            <p>You are one step away from discovering greatness</p>
-        </article>
+        <h2>Start your journey through our expansive library</h2>
+        <p>You are one step away from discovering greatness</p>
         <p class="ghost">Art by Tirachard Kumtanom</p>
     </article>
 </main>

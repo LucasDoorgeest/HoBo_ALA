@@ -5,7 +5,6 @@ function handleSerieEditRequest($GET) {
     $id = $GET["id"];
     $SerieTitel = $GET["SerieTitel"];
     $IMDBLink = $GET["IMDBLink"];
-
     $genres = $GET["genre"];
-
 }
+?>

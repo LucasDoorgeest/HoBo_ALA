@@ -10,7 +10,6 @@ $klantID = $_SESSION["user"]["KlantNr"];
 $aflID = $_GET['id'];
 $serieID = getSerieIdByAflId($_GET['id']);
 
-
 $afl = getAfleveringByID($aflID);
 $serie = getSerieByID($serieID);
 $head = new HeadComponent($serie["SerieTitel"] . " - " . $afl["AflTitel"],
