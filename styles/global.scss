@@ -176,6 +176,7 @@ img {
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     outline: 1px solid rgba($color: $green, $alpha: .0);
     transition: all 0.1s ease;
+    color: black;
 
     &:hover {
         cursor: pointer;
@@ -220,7 +221,7 @@ img {
     gap: 2rem;
     flex-direction: column;
     p {
-        max-width: 40vw;
+        max-width: 30vw;
     }
 }
 
@@ -613,7 +614,7 @@ footer{
         font-weight: 600;
         text-align: center;
         font-size: 1.25rem;
-        height: 25px;
+        height: 30px;
         overflow: hidden;
     }
 }
@@ -674,6 +675,11 @@ footer{
     input[type="submit"] {
         font-size: 2rem;
         border-radius: 1.5rem;
+    }
+
+    input[type="checkbox"] {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }
 
@@ -857,6 +863,7 @@ label.center {
 
     header {
         padding: 1.25rem 1vw;
+        gap: 1vw;
     }
 
     .logo-img-small {
@@ -934,6 +941,7 @@ label.center {
 
     .profilePage {
         font-size: 3.5vw !important;
+        border-radius: 7vw;
 
         form {
             gap: 2vw;
@@ -951,6 +959,20 @@ label.center {
 
     #kijkgeschiedenis {
         position: unset;
+    }
+
+
+
+    form.form {
+        font-size: 3vw;
+        input, select, .button {
+            font-size: 3vw;
+        }
+    
+        input[type="checkbox"] {
+            width: 6vw;
+            height: 6vw;
+        }
     }
 }
 
