@@ -87,4 +87,3 @@ $afleveringen = fetchSqlAll("SELECT * FROM aflevering WHERE SeizID = ?", [$_GET[
     </main>
     <?php FooterComponent::render(); ?>
 </body>
-
