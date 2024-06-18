@@ -7,19 +7,12 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 include_once "../php/tools.php";
+include_once 'getHistory.php';
 
 include_once '../blocks/headComponent.php';
 include_once '../blocks/headerComponent.php';
 include_once '../blocks/footerComponent.php';
-
 include_once '../blocks/serieCard.php';
 include_once '../blocks/scrollableList.php';
 include_once '../blocks/afleveringCard.php';
-
-include_once 'getHistory.php';
-
-
-
-
-
-
+?>

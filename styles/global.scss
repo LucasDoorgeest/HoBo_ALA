@@ -1,4 +1,5 @@
 /* Basic variables */
+
 $blue: #5B9BD5;
 $green: #92D051;
 
@@ -9,6 +10,7 @@ $layout-breakpoint-large: 1024px;
 $ghost: #999999;
 
 /* Global styling */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,13 +25,11 @@ body {
     flex-direction: column;
 }
 
-
 /* Header styling */
 header {
     display: flex;
     height: 100px;
     padding: 1.25rem 2rem;
-
     justify-content: space-between;
     align-items: center;
 }
@@ -44,7 +44,6 @@ header figure#logo, header figure#logo img {
 
 header nav {
     display: flex;
-
     gap: 0.5rem;
     align-items: center;
 }
@@ -53,15 +52,11 @@ header nav {
     display: flex;
     width: 15rem;
     padding: 0.5rem;
-
     border-radius: 100vw;
-
     justify-content: space-between;
     align-items: center;
-
     background-color: rgba($color: $blue, $alpha: .25);
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .15);
-
     transition: all 0.5s ease;
 
     *:focus {
@@ -94,10 +89,8 @@ header nav {
     width: 36px;
     height: 36px;
     border-radius: 100vw;
-
     background-color: white;
     color: #fff;
-
     transition: all 0.3s ease;
     &:hover {
         cursor: pointer;
@@ -109,7 +102,6 @@ header nav {
     font-family: "neutra_textbold_alt";
     font-size: 2.5rem;
 }
-
 
 /* Background styling */
 #blurBg {
@@ -128,7 +120,6 @@ header nav {
     transition: all 0.5s ease;
 }
 
-
 /* Main styling */
 main {
     flex: 1;
@@ -144,12 +135,10 @@ main > * {
     max-width: $maxWidth;
 }
 
-
 /* Basic elements */
 h1 {
     font-size: 3.5rem;
     font-weight: 600;
-
 }
 h2 {
     font-size: 2rem;
@@ -174,11 +163,9 @@ img {
     margin: 0.25rem;
     border-radius: 50vw;
     border-width: 0;
-
     background-color: rgba($color: $green, $alpha: .35);
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     outline: 1px solid rgba($color: $green, $alpha: .0);
-
     transition: all 0.1s ease;
 
     &:hover {
@@ -191,7 +178,6 @@ img {
         background-color: rgba($color: $blue, $alpha: .5);
     }
 
-    //Button pressed effect
     &:active {
         transform: scale(0.90);
     }
@@ -202,10 +188,8 @@ img {
 .serieCard {
     display: flex;
     justify-content: space-between;
-
     font-weight: 500;
     font-size: 18px;    
-    
     gap: 1rem;
 }
 .serieCard .cardHeading {
@@ -273,18 +257,15 @@ img {
         font-weight: 500;
         text-align: center;
     }
-
 }
 
 .serieInfoImg {
     box-shadow: 5px 5px 20px rgba($color: black, $alpha: .35);
     max-width: 33vw;
-
     max-height: calc(33vw * 1.5);
     width: 400px;
     height: 600px;
 }
-
 
 /* Scrollable styling */
 .scrollableWrap {
@@ -292,7 +273,6 @@ img {
     gap: 1rem;
     overflow-x: auto;
     scrollbar-width: none;
-
     scroll-behavior: smooth;
 }
 
@@ -300,9 +280,11 @@ img {
     margin-top: 0.25rem;
     position: relative;
     transition: all 0.3s ease;
+
     img {
         width: 200px;
     }
+
     .arrow{
         color: black;
         border: none;
@@ -319,13 +301,13 @@ img {
         width: 60px;
         height: 60px;
     }
+
     .leftArrow{
         left: 0px;
     }
-    .rightArrow{
-        right: 0px;
 
-        
+    .rightArrow{
+        right: 0px; 
     }
 }
 
@@ -353,7 +335,6 @@ img {
     height: 300px;
     object-fit:contain;
     border-radius: 0.5rem;
-
     object-fit: cover;
 }
 
@@ -367,7 +348,6 @@ img {
     justify-content: space-between;
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     transition: all 0.3s ease;
-
     background-color: rgba($color: $blue, $alpha: .25);
     padding: 0.5rem;
 
@@ -402,6 +382,7 @@ a {
     display: flex;
     width: 90vw;
     justify-content: center;
+    flex-direction: row;
     margin: auto;
     gap: 50px;
     padding: 2rem;
@@ -570,7 +551,6 @@ footer{
     font-size: 2rem;
     left: 0;
     margin-top: 15%;
-
 }
 
 .flexWrap {
@@ -585,9 +565,7 @@ footer{
 .profilePage {
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     background-color: rgba($color: $blue, $alpha: .25);
-
     max-width: fit-content;
-
     font-weight: 600;
     font-size: 1.75rem;
     border-radius: 3rem;
@@ -597,7 +575,6 @@ footer{
         flex-direction: column;
         gap: 2rem;
         align-items: center;
-
         padding: 2rem;
     }
 
@@ -616,22 +593,27 @@ footer{
         border-radius: 0.5rem;
         border: 1px solid $ghost;
         transition: all 0.3s ease;
-
         box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
-
         font-size: 1.5rem;
 
         &:focus {
             outline: none;
             border: 1px solid $blue;
         }
-    
     }
 
     input[type="submit"] {
         font-size: 2rem;
         border-radius: 1.5rem;
     }
+}
+
+#reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 40vw;
 }
 
 .center {
@@ -722,8 +704,6 @@ footer{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
-
-
 }
 
 .highlight {
@@ -783,6 +763,24 @@ footer{
 
     .scrollableCard {
         width: 150px;
+    }
+
+    .infologin{
+        display: none;
+    }
+
+    .registerForm{
+        max-width: 70vw;
+
+        .brand{
+            max-width: 70vw;
+        }
+
+        form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .profilePage {

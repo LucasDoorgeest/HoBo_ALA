@@ -6,7 +6,7 @@ function handleSerieEditRequest($GET) {
     $id = $GET["id"];
     $SerieTitel = $GET["SerieTitel"];
     $IMDBLink = $GET["IMDBLink"];
-
+    $genres = $GET["genre"];
 
     if ($GET["submit"] == "Verwijderen") {
         $check = "SELECT * FROM seizoen WHERE SerieID = ?";
@@ -20,7 +20,6 @@ function handleSerieEditRequest($GET) {
                 return;
             }
         }
-
 
         //Dangerous
         $query = "DELETE FROM serie_genre WHERE SerieID = ?";
@@ -38,7 +37,6 @@ function handleSerieEditRequest($GET) {
         $GET["genre"] = [];
     }
     $genres = $GET["genre"];
-
 
     $query = "UPDATE serie SET SerieTitel = ?, IMDBLink = ? WHERE SerieID = ?";
     runSql($query, [$SerieTitel, $IMDBLink, $id]);
@@ -60,6 +58,6 @@ function handleSerieEditRequest($GET) {
             runSql($query, [$id, $existingGenre]);
         }
     }
-
     header("Location: editSerie.php?id=$id");
 }
+?>

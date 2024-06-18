@@ -1,6 +1,4 @@
 <?php
-
-
 class FooterComponent
 {
     static public function render()
@@ -18,3 +16,4 @@ class FooterComponent
     <?php
     }
 }
+?>

@@ -27,16 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
-
 <body>
     <?php HeaderComponent::render(); ?>
     <main>
         <h1 class="center">Profiel</h1>
         <section class="profilePage">
-
         <form action="profile.php" method="post">
-
-
             <table>
                 <tr>
                     <td><label for="Voornaam">Voornaam</label></td>

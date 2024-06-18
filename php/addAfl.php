@@ -11,5 +11,4 @@ $query = "INSERT INTO aflevering (AflTitel, Duur, SeizID, Rang) VALUES (?, ?, ?,
 runSql($query, [$AflTitel, $Duur, $SeizoenID, $Rang]);
 
 header("Location: ../pages/editSeizoen.php?id=$SeizoenID");
-
-
+?>

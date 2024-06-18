@@ -1,5 +1,4 @@
 <?php
-
 function afleveringCard($id) {
     $query = "select * from aflevering where AfleveringID = ?;";
     $aflevering = fetchSql($query, [$id]);
@@ -27,20 +26,13 @@ function afleveringCard($id) {
             }
         }
     }
-
     ?>
-
     <section class="flexWrap">
-
-    
         <section>
             <h2><?php echo $aflevering["AflTitel"]; ?></h2>
             <p>Duur: <?php echo $aflevering["Duur"] ?> m</p>
         </section>
-
-    
     </section>
-
     <section class="fakePlayer">
         <video controls>
             <source src="/videos/aflevering.mp4" type="video/mp4">
@@ -57,29 +49,19 @@ function afleveringCard($id) {
             <?php 
                 foreach($seasons as $key => $season) {
                     ?>
-
                     <section class="afleveringenWrap <?php echo $key == $selectedSeason ? "" : "d-none"; ?>">
-
                     <?php
-
                         foreach($season as $aflevering) {
                             echo "<a href='/pages/aflevering.php?id=" . $aflevering["AfleveringID"] . "'>Aflevering " . $aflevering["AflTitel"] . "</a>";
                         }
-
                     ?>
-
                     </section>
-
                     <?php
                     }
                     ?>
             </section>
-
         </section>
-
-
     </section>
-
     <style>
         .fakePlayer {
             display: flex;
@@ -148,3 +130,4 @@ function afleveringCard($id) {
     </script>
 <?php
 }
+?>

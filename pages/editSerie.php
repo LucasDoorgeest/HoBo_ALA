@@ -25,7 +25,6 @@ $serieGenres = array_map(function ($serieGenres) {
 }, $serieGenres);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
@@ -33,11 +32,9 @@ $serieGenres = array_map(function ($serieGenres) {
     <?php HeaderComponent::render(); ?>
     <main>
         <h1>Edit Serie</h1>
-
         <form action="">
             <input type="hidden" name="id" value="<?php echo $serie["SerieID"] ?>">
             <table class="maxWidth">
-
                 <tr>
                     <td><label for="SerieTitel">SerieTitel</label></td>
                     <td><input type="text" name="SerieTitel" value="<?php echo $serie["SerieTitel"] ?>"></td>
@@ -60,13 +57,10 @@ $serieGenres = array_map(function ($serieGenres) {
                             ?>
                         </section>
                     </td>
-                    
                 </tr>
             </table>
             <input name="submit" class="button" type="submit" value="Opslaan">
             <input name="submit" class="button" type="submit" value="Verwijderen">
-
-
             <section class="seizoenenSelect">
                 <h2>Seizoenen editen</h2>
                 <?php

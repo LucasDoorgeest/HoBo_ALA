@@ -41,7 +41,6 @@ function serieCard($id) {
         $totalDuration = $totalDuration . "m";
     }
   
-
     $serieInfo = [
         "id" => $id,
         "title" => $serie["SerieTitel"],
@@ -59,9 +58,6 @@ function serieCard($id) {
         "active" => $serie["Actief"]? "Yes" : "No",
         "IMDBLink" => $serie["IMDBLink"]
     ];
-
-    // print_r($serieInfo);
-
 
     foreach($serieInfo as $key => $value) {
         if ($value == null) {
@@ -112,8 +108,6 @@ function serieCard($id) {
             </tr>
         </table>
     </section>
-
-
     <section class="rating">
         <a href="<?php echo $serieInfo["IMDBLink"]; ?>">
             <p>IMDb Rating:</p>

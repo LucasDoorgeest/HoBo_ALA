@@ -13,6 +13,5 @@ document.addEventListener("DOMContentLoaded", function () {
         rightBtn.addEventListener('click', function () {
             scrollableWrap.scrollLeft = parseInt(scrollableWrap.scrollLeft) + imgWidth;
         });
-
     });
 });

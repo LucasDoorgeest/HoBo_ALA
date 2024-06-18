@@ -9,7 +9,6 @@ $head = new HeadComponent(
 );
 
 $series = fetchSqlAll("SELECT * FROM serie", []);
-
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +18,8 @@ $series = fetchSqlAll("SELECT * FROM serie", []);
     <?php HeaderComponent::render(); ?>
     <main>
         <h1>Beheer</h1>
-
         <section>
         <a class="button addNewSerie" href="/pages/addSerie.php">Add new serie</a>
-
-
         <table class="serieBeheer">
             <tr>
                 <th>SerieID</th>
@@ -43,7 +39,6 @@ $series = fetchSqlAll("SELECT * FROM serie", []);
             ?>
         </table>    
         </section>
-
     </main>
     <?php FooterComponent::render(); ?>
 </body>

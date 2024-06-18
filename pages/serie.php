@@ -14,7 +14,6 @@ echo "<script>const userId = $userId; const serieId = $serieId;</script>";
 $head = new HeadComponent("Aflevering", 
                         ["/styles/global.css"], 
                         ["/script/slides.js", "/script/custombg.js", "/script/lazyLoad.js"]);
-
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +25,6 @@ $head = new HeadComponent("Aflevering",
     <div id="blurBg"></div>
     <?php echo serieCard($_GET['id']); ?>
     <h2>Seizoenen</h2>
-
     <?php
     $seasons = fetchSqlAll("select * from seizoen where SerieID = ?", [$_GET['id']]);
     foreach ($seasons as $key => $season) {

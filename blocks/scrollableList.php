@@ -18,7 +18,6 @@ function scrollableList($heading, $items, $isHistory = false) {
         }
         $items[$key]["img"] = getImgPathBySerieId($item["SerieID"]);
     }
-
     ?>
     <section>
         <?php if ($isHistory) { ?>
@@ -38,26 +37,19 @@ function scrollableList($heading, $items, $isHistory = false) {
                         <div class="scrollableCard">
                             <img class="scrollableImg bgsupport lazy" data-src="<?php echo $item["img"] ?>" alt="<?php echo $item["title"] ?>">
                             <p><?php echo isset($item["AflTitel"])?$item["AflTitel"]:$item["title"] ?></p>
-
-
                         </div>
                     </a>
                     <?php
                 }
                 ?>
-                
             </div>
-
             <button class="leftArrow arrow button">
                 <p><</p>
             </button>
             <button class="rightArrow arrow button">
                 <p>></p>
             </button>
-
-
         </section>
     </section>
     <?php
 }
-

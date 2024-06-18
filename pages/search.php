@@ -12,13 +12,11 @@ if (!isset($_GET["q"])) {
     $_GET["q"] = "";
 }
 
-
 $series = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $search = isset($_GET["q"]) ? $_GET["q"] : null;
     $genre = isset($_GET["genre"]) ? $_GET["genre"] : null;
-
 
     $query = "SELECT * FROM serie";
     $params = [];
@@ -36,12 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         } else {
             $query .= " WHERE";
         }
-
         $query .= " SerieTitel LIKE ?";
         $params[] = "%" . $search . "%";
     }
-
-
     $series = fetchSqlAll($query, $params);
 }
 
@@ -49,11 +44,8 @@ foreach ($series as $key => $serie) {
     $series[$key]["image"] = getImgPathBySerieId($serie["SerieID"]);
 }
 
-
 $genres = fetchSqlAll("SELECT * FROM genre");
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -65,16 +57,12 @@ $genres = fetchSqlAll("SELECT * FROM genre");
         <?php
         if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"])) {
         ?>
-
             <script>
                 document.getElementById("searchText").value = "<?php echo $_GET["q"] ?>";
             </script>
-
         <?php
         }
-        
         ?>
-
         <section id="searchHeading">
             <a href="/pages/search.php?q=<?php echo $_GET['q'] ?>">
                 <button class="button<?php if (!isset($_GET["genre"])) { echo " active"; } ?>">All</button>
@@ -90,13 +78,9 @@ $genres = fetchSqlAll("SELECT * FROM genre");
                 </a>
             <?php } ?>
         </section>
-
-
         <section class="searchResults">
             <?php
-
             foreach ($series as $serie) {
-
             ?>
                 <a href="/pages/serie.php?id=<?php echo $serie["SerieID"] ?>">
                     <section class="serieCardWrap">
@@ -104,8 +88,6 @@ $genres = fetchSqlAll("SELECT * FROM genre");
                         <p><?php echo $serie["SerieTitel"] ?></p>
                     </section>
                 </a>
-
-
             <?php
             }
             if (count($series) == 0) {
@@ -118,5 +100,4 @@ $genres = fetchSqlAll("SELECT * FROM genre");
     </main>
     <?php FooterComponent::render(); ?>
 </body>
-
 </html>

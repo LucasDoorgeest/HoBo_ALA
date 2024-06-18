@@ -8,8 +8,6 @@ $head = new HeadComponent(
     ["/script/slides.js", "/script/aflevering.js", "/script/lazyLoad.js", "/script/custombg.js"]
 );
 
-
-
 function calcDuration($items) {
     $totalSeconds = 0;
     foreach ($items as $item) {
@@ -39,18 +37,14 @@ function calcDuration($items) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="nl">
 <?php $head->render(); ?>
-
 <body>
     <?php HeaderComponent::render(); ?>
     <main>
         <div id="blurBg"></div>
-
         <h1>History</h1>
-
         <?php
         $items = getHistory($_SESSION["user"]["KlantNr"]);
 
@@ -84,7 +78,6 @@ function calcDuration($items) {
         $lastWeekDuration = calcDuration(array_merge($todayDuration, $lastWeekDuration));
         $todayDuration = calcDuration($todayDuration);
 
-
         $items = getFilteredHistory($_SESSION["user"]["KlantNr"]);
 
         $today = [];
@@ -95,7 +88,6 @@ function calcDuration($items) {
         foreach ($items as $key => $item) {
             $todayDate = new DateTime();
             $todayDate->setTime(0, 0, 0);
-
 
             $date = new DateTime($item["d_eind"]);
             $date->setTime(0, 0, 0);
@@ -115,10 +107,7 @@ function calcDuration($items) {
         renderHistoryItems("This week: " . $lastWeekDuration, $lastWeek);
         renderHistoryItems("This month: " . $lastMonthDuration, $lastMonth);
         renderHistoryItems("Earlier: " . $earlierDuration, $earlier);
-
-
         ?>
-
     </main>
     <?php FooterComponent::render(); ?>
 </body>
