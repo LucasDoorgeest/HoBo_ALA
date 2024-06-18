@@ -49,6 +49,10 @@ $genres = fetchSqlAll("SELECT * FROM genre", []);
                     <td><input type="text" name="Achternaam" value="<?php echo $klant["Achternaam"] ?>"></td>
                 </tr>
                 <tr>
+                    <td><label for="Email">Email</label></td>
+                    <td><input type="email" name="Email" value="<?php echo $klant["Email"] ?>" disabled></td>
+                </tr>
+                <tr>
                     <td><label for="Genre">Genre</label></td>
                     <td>
                         <select name="Genre" id="Genre">
