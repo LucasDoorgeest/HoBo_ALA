@@ -728,6 +728,12 @@ footer{
 
 }
 
+.formWrap {
+    min-width: fit-content;
+    width: 700px;
+    max-width: 99vw;
+}
+
 /* Responsive */
 
 @media screen and (max-width: $layout-breakpoint-medium) {
