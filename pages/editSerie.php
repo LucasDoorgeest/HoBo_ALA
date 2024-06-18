@@ -60,7 +60,7 @@ $serieGenres = array_map(function ($serieGenres) {
                 </tr>
             </table>
             <input name="submit" class="button" type="submit" value="Opslaan">
-            <input name="submit" class="button" type="submit" value="Verwijderen">
+            <input name="submit" class="button buttonred" type="submit" value="Verwijderen">
             <section class="seizoenenSelect">
                 <h2>Seizoenen editen</h2>
                 <?php
