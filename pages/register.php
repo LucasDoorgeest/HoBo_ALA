@@ -32,7 +32,7 @@ $head = new HeadComponent("Register",
 ?>
 
 <!DOCTYPE html>
-<html lang="nl"></html>
+<html lang="nl">
 <?php $head->render(); ?>
 <body>
 <?php HeaderComponent::render(); ?>
