@@ -25,6 +25,7 @@ $head = new HeadComponent("Login",
 <!DOCTYPE html>
 <html lang="nl"></html>
 <?php $head->render(); ?>
+<body>
 <?php HeaderComponent::render(); ?>
 <main class="register">
     <section class="registerForm">
