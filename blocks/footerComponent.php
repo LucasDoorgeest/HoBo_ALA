@@ -11,7 +11,7 @@ class FooterComponent
             <p>
                 Made by Hobo
             </p>
-            <a href="#">Terms of Use</a>
+            <a class="terms" href="#">Terms of Use</a>
         </footer>
     <?php
     }

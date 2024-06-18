@@ -1,5 +1,5 @@
 /* Basic variables */
-
+$red: #E74C3C;
 $blue: #5B9BD5;
 $green: #92D051;
 
@@ -92,6 +92,9 @@ header nav {
     background-color: white;
     color: #fff;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
         cursor: pointer;
         transform: scale(1.05);
@@ -183,6 +186,18 @@ img {
     }
 }
 
+.buttonred{
+    background-color: rgba($color: $red, $alpha: .35);
+    box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
+    outline: 1px solid rgba($color: $red, $alpha: .0);
+
+    &:hover {
+        background-color: rgba($color: $red, $alpha: .5);
+        outline: 1px solid rgba($color: $red, $alpha: .7);
+    }
+
+}
+
 /* Serie card styling */
 
 .serieCard {
@@ -205,6 +220,10 @@ img {
         flex-direction: column;
         font-weight: 500;
         font-size: 18px;
+    }
+    a{
+        display: flex;
+        gap: 1rem;
     }
 
     .serieImg {
@@ -534,7 +553,6 @@ footer{
     }
 }
 
-
 #profile {
     transition: all 0.3s ease;
     
@@ -628,15 +646,11 @@ footer{
     text-align: center;
     top: 50px;
     right: 50px;
-
     width: 150px;
-
     background-color: rgba($color: $blue, $alpha: .25);
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     border-radius: 2rem;
-
     transition: all 0.3s ease;
-
     padding: 1rem;
 
     &:hover {
@@ -720,18 +734,23 @@ footer{
     h1 {
         font-size: 7vw;
     }
+
     h2 {
         font-size: 1.5rem;
     }
+
     header {
         padding: 1.25rem 1vw;
     }
+
     .logo-img-small {
         display: block;
     }
+
     .logo-img {
         display: none;
     }
+
     .serieCard {
         font-size: 3vw;
 

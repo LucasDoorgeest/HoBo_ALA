@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="/img/history.png" alt="history icon">
             <p>Bekijk kijkgeschiedenis</p>
         </a>
-        <a id="reset" class="button" href="/pages/profile.php?reset">
+        <a id="reset" class="buttonred button" href="/pages/profile.php?reset">
             <p>Uitloggen</p>
         </a>
     </main>
