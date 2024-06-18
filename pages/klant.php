@@ -69,7 +69,19 @@ $genres = fetchSqlAll("SELECT * FROM genre", []);
                 </tr>
                 <tr>
                     <td><label for="AboID">AboID</label></td>
-                    <td><input type="number" name="AboID" value="<?php echo $klant["AboID"] ?>"></td>
+                    <td>
+                        <select name="AboID" id="AboID">
+                            <?php
+                            $abonnementen = fetchSqlAll("SELECT * FROM abonnement", []);
+                            foreach ($abonnementen as $abonnement) {
+                            ?>
+                                <option value="<?php echo $abonnement["AboID"] ?>" <?php echo $klant["AboID"] == $abonnement["AboID"] ? "selected" : "" ?>><?php echo $abonnement["AboNaam"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                
+                    </td>
                 </tr>
             </table>
             <input class="button" type="submit" name="submit" value="Submit">
