@@ -534,7 +534,6 @@ footer{
     }
 }
 
-
 #profile {
     transition: all 0.3s ease;
     
@@ -628,15 +627,11 @@ footer{
     text-align: center;
     top: 50px;
     right: 50px;
-
     width: 150px;
-
     background-color: rgba($color: $blue, $alpha: .25);
     box-shadow: 5px 5px 10px rgba($color: black, $alpha: .25);
     border-radius: 2rem;
-
     transition: all 0.3s ease;
-
     padding: 1rem;
 
     &:hover {
@@ -712,18 +707,23 @@ footer{
     h1 {
         font-size: 7vw;
     }
+
     h2 {
         font-size: 1.5rem;
     }
+
     header {
         padding: 1.25rem 1vw;
     }
+
     .logo-img-small {
         display: block;
     }
+
     .logo-img {
         display: none;
     }
+    
     .serieCard {
         font-size: 3vw;
 
