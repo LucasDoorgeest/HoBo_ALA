@@ -7,18 +7,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordRepeat = $_POST['passwordRepeat'];
 
     if (strlen($password) < 8) {
-        echo "<script>alert('Password must be at least 8 characters long');</script>";
+        echo "<script>alert('Wachtwoord moet minimaal 8 tekens bevatten');</script>";
     } else if ($password !== $passwordRepeat) {
-        echo "<script>alert('Passwords do not match');</script>";
+        echo "<script>alert('Wachtwoorden komen niet overeen');</script>";
     } else {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $user = fetchSql('SELECT * FROM klant WHERE email = ?', [$email]);
         if ($user) {
-            echo "<script>alert('Klant already exists');</script>";
+            echo "<script>alert('Klant nu al geregistreerd');</script>";
         } else {
             execSql('INSERT INTO klant (email, password, AboID, Genre) VALUES (?, ?, 1, 1)', [$email, $hashedPassword]);
-            header('Location: /pages/login.php');
+            $user = fetchSql('SELECT * FROM klant WHERE email = ?', [$email]);
+            $_SESSION['user'] = $user;
+            header('Location: /');
             exit;
         }     
     }
