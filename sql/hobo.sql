@@ -11718,6 +11718,10 @@ ALTER TABLE `stream`
   ADD CONSTRAINT `FKStream895793` FOREIGN KEY (`KlantID`) REFERENCES `klant` (`KlantNr`);
 COMMIT;
 
+
+insert into abonnement (AboNaam, MaxDevices, StreamKwaliteit) values ("Admin", 999, 50);
+update klant set AboID = 4 where email = "heboba@heboba.site";
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
